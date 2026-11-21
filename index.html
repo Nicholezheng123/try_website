@@ -176,15 +176,26 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* NEW: ROLE LABELS UNDER ANIMATION */
+/* ROLE LABELS — REFINED SPACING */
 
 .hero-roles {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding-left: 6px;
+  margin: 2px 0 30px;
+  color: #827b75;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: .18em;
-  color: #827b75;
-  margin: 0 0 27px;
-  line-height: 1.8;
+  letter-spacing: .15em;
+  line-height: 1.7;
+}
+
+.hero-roles .dot {
+  font-size: 10px;
+  letter-spacing: 0;
+  color: #9b9189;
 }
 
 /* POLAROID COLLAGE */
@@ -284,8 +295,6 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   line-height: 1.65;
   color: #6d6762;
 }
-
-/* NEW: MORE ABOUT ME LINK */
 
 .more-about {
   display: inline-block;
@@ -412,16 +421,22 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .card-body p { font-size: 14px; margin: 0; }
 
-/* I WORK WITH */
+/* I WORK WITH — SMALLER, CLEANER */
 
-.ticker { padding: 75px 0 80px; }
-.ticker > .kicker { padding: 0 6%; margin-bottom: 26px; }
+.ticker {
+  padding: 65px 0 70px;
+}
+
+.ticker > .kicker {
+  padding: 0 6%;
+  margin-bottom: 23px;
+}
 
 .ticker-window {
   overflow: hidden;
   border-top: 1px solid #d4cdc5;
   border-bottom: 1px solid #d4cdc5;
-  padding: 24px 0;
+  padding: 20px 0;
   mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
 }
@@ -430,27 +445,31 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   display: flex;
   align-items: center;
   width: max-content;
-  animation: skillsScroll 32s linear infinite;
-  font: normal clamp(25px, 2.5vw, 37px) Georgia, serif;
+  animation: skillsScroll 38s linear infinite;
+  font: normal clamp(21px, 2vw, 29px) Georgia, serif;
 }
 
 .skill-set {
   display: flex;
   align-items: center;
-  gap: 32px;
-  padding-right: 32px;
+  gap: 26px;
+  padding-right: 26px;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .skill-star {
-  font: normal 16px Arial, sans-serif;
+  font: normal 12px Arial, sans-serif;
   color: #aa9b8d;
 }
 
-.ticker-window:hover .ticker-track { animation-play-state: paused; }
+.ticker-window:hover .ticker-track {
+  animation-play-state: paused;
+}
 
-@keyframes skillsScroll { to { transform: translateX(-50%); } }
+@keyframes skillsScroll {
+  to { transform: translateX(-50%); }
+}
 
 /* CONTACT */
 
@@ -485,7 +504,9 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     padding: 45px 5% 70px;
   }
 
-  .hero h1 { font-size: clamp(58px, 6.5vw, 80px); }
+  .hero h1 {
+    font-size: clamp(58px, 6.5vw, 80px);
+  }
 
   .collage { height: 370px; }
   .p1 { height: 230px; }
@@ -542,8 +563,10 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .tagline-text { font-size: 25px; }
 
   .hero-roles {
+    padding-left: 3px;
     font-size: 10px;
-    letter-spacing: .12em;
+    letter-spacing: .1em;
+    gap: 6px 9px;
   }
 
   .collage { height: 370px; }
@@ -554,7 +577,10 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
   .about { padding: 70px 7%; }
 
-  .facts { grid-template-columns: 1fr; gap: 30px; }
+  .facts {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 
   .fact, .fact:first-child {
     padding: 0 0 22px;
@@ -568,8 +594,9 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .work { padding: 70px 7%; }
   .cards { grid-template-columns: 1fr; }
   .card-img { height: 160px; }
-  .ticker { padding: 60px 0; }
-  .skill-set { gap: 22px; padding-right: 22px; }
+
+  .ticker { padding: 55px 0; }
+  .skill-set { gap: 20px; padding-right: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -627,7 +654,13 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     </div>
 
     <div class="hero-roles">
-      RESEARCHER &nbsp;•&nbsp; DATA ANALYST &nbsp;•&nbsp; BUILDER &nbsp;•&nbsp; TRAVELER
+      <span>RESEARCHER</span>
+      <span class="dot">•</span>
+      <span>DATA ANALYST</span>
+      <span class="dot">•</span>
+      <span>BUILDER</span>
+      <span class="dot">•</span>
+      <span>TRAVELER</span>
     </div>
 
     <a class="btn" href="#work">
@@ -692,7 +725,11 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       </div>
 
       <h3>Cornell University</h3>
-      <p>ORIE Major<br>Data Science Minor</p>
+      <p>
+        Operations Research and<br>
+        Information Engineering +<br>
+        Data Analytics
+      </p>
     </div>
 
     <div class="fact">
@@ -706,7 +743,12 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       </div>
 
       <h3>What I Work On</h3>
-      <p>Analytics<br>Optimization<br>AI<br>Product Strategy</p>
+      <p>
+        Analytics<br>
+        Optimization<br>
+        AI<br>
+        Product Strategy
+      </p>
     </div>
 
     <div class="fact" id="life">
@@ -719,7 +761,13 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       </div>
 
       <h3>Outside the Data</h3>
-      <p>Travel<br>Photography<br>Rock Climbing<br>Cooking<br>Badminton</p>
+      <p>
+        Travel<br>
+        Photography<br>
+        Rock Climbing<br>
+        Cooking<br>
+        Badminton
+      </p>
     </div>
 
   </div>
