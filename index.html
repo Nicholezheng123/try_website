@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Nichole Zheng — Portfolio</title>
-
   <link rel="stylesheet" href="style.css">
 
   <style>
@@ -25,6 +24,7 @@
     .nav nav a {
       position: relative;
       padding: 10px 0;
+      text-decoration: none;
       transition: color .25s ease;
     }
 
@@ -51,7 +51,7 @@
       color: #856b5c;
     }
 
-    /* ORIGINAL HERO TEXT SIZE */
+    /* ORIGINAL HERO SIZE */
     .hero h1 {
       font-size: clamp(65px, 6.5vw, 115px);
       line-height: .86;
@@ -71,14 +71,32 @@
       font-size: 11px;
     }
 
-    /* ORIGINAL CORNELL TOWER POLAROID */
-    .p1 img.cornell-tower {
+    /* RESTORE CORNELL TOWER POLAROID */
+    .collage .polaroid.p1 {
+      overflow: visible;
+    }
+
+    .collage .polaroid.p1 img {
       object-fit: cover;
       object-position: center;
       transform: none;
     }
 
-    /* LARGER BODY TEXT */
+    /* ABOUT ME: SMALLER ORIGINAL HEADING */
+    .about .about-lead h2 {
+      font-size: clamp(26px, 2.2vw, 36px);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+    }
+
+    /* OTHER SECTION HEADINGS */
+    .work-intro h2,
+    .contact h2 {
+      font-size: clamp(34px, 2.8vw, 46px);
+      line-height: 1.1;
+    }
+
+    /* LARGER BODY PARAGRAPHS */
     .about p,
     .work p,
     .contact p,
@@ -93,14 +111,7 @@
       font-size: 20px;
     }
 
-    .about-lead h2,
-    .work-intro h2,
-    .contact h2 {
-      font-size: clamp(34px, 2.8vw, 46px);
-      line-height: 1.1;
-    }
-
-    /* MOBILE */
+    /* TABLET */
     @media (max-width: 900px) {
       .nav nav {
         gap: 14px;
@@ -116,6 +127,7 @@
       }
     }
 
+    /* MOBILE */
     @media (max-width: 600px) {
       .nav {
         height: auto;
@@ -145,6 +157,10 @@
 
       .hero h2 {
         font-size: 22px;
+      }
+
+      .about .about-lead h2 {
+        font-size: 28px;
       }
 
       .about p,
@@ -191,15 +207,12 @@
 
   <!-- HOME -->
   <section class="hero" id="home">
-
     <div class="hero-copy reveal">
       <div class="kicker">HI, I'M</div>
 
       <h1>NICHOLE<br>ZHENG</h1>
 
-      <h2>
-        I turn complex data into clear decisions.
-      </h2>
+      <h2>I turn complex data into clear decisions.</h2>
 
       <div class="tiny">
         ALSO A <span id="cycle">DATA ANALYST</span>
@@ -210,7 +223,7 @@
       </a>
     </div>
 
-    <!-- POLAROID COLLAGE -->
+    <!-- ORIGINAL POLAROID COLLAGE -->
     <div class="collage" aria-label="Personal photo collage">
 
       <div class="tape t1"></div>
@@ -218,7 +231,6 @@
 
       <figure class="polaroid p1">
         <img
-          class="cornell-tower"
           src="assets/IMG_7189.jpeg"
           alt="Cornell clock tower in autumn"
         >
@@ -250,7 +262,6 @@
 
   <!-- ABOUT -->
   <section class="about" id="about">
-
     <div class="about-lead reveal">
       <div class="kicker dark">About Me</div>
 
@@ -268,7 +279,6 @@
     </div>
 
     <div class="facts reveal">
-
       <div>
         <h3>Cornell University</h3>
         <p>
@@ -294,13 +304,11 @@
           Badminton
         </p>
       </div>
-
     </div>
   </section>
 
   <!-- WORK -->
   <section class="work" id="work">
-
     <div class="work-intro reveal">
       <div class="kicker dark">Featured Work</div>
 
@@ -319,10 +327,8 @@
       <!-- IBM -->
       <article class="card reveal">
         <div class="card-img ibm">IBM</div>
-
         <div class="card-body">
           <h3>IBM Data &amp; AI</h3>
-
           <p>
             Analyzed customer and sales data to drive
             insights and support go-to-market strategy.
@@ -330,13 +336,11 @@
         </div>
       </article>
 
-      <!-- OPTIMIZATION -->
+      <!-- SCHEDULING -->
       <article class="card reveal">
         <div class="card-img schedule"></div>
-
         <div class="card-body">
           <h3>Scheduling Optimization</h3>
-
           <p>
             Built optimization models to create conflict-free
             exam schedules for 15,000+ students.
@@ -347,10 +351,8 @@
       <!-- RESEARCH -->
       <article class="card reveal" id="research">
         <div class="card-img research"></div>
-
         <div class="card-body">
           <h3>Scientific Team Composition Research</h3>
-
           <p>
             Analyzed 9,000+ research papers to study
             how team composition and AI tools affect
@@ -364,7 +366,6 @@
 
   <!-- SKILLS -->
   <section class="ticker" id="skills">
-
     <div class="kicker dark">I WORK WITH</div>
 
     <div class="ticker-window">
@@ -376,12 +377,10 @@
         Tableau / Pandas / ML / Optimization
       </div>
     </div>
-
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section class="contact" id="contact">
-
     <div class="kicker dark">LET'S CONNECT</div>
 
     <h2>Have a question or an idea?</h2>
@@ -394,7 +393,6 @@
     <a class="btn" href="mailto:Nicholezheng123@gmail.com">
       Get in Touch ↗
     </a>
-
   </section>
 
 </main>
