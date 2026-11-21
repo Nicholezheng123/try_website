@@ -282,7 +282,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .t1 { left: 52%; top: 9px; transform: rotate(-4deg); }
 .t2 { right: 12%; top: 20px; transform: rotate(5deg); }
 
-/* NEW: CAMERA SHUTTER INTERACTIONS */
+/* CAMERA SHUTTER INTERACTIONS */
 
 .photo-window {
   position: relative;
@@ -302,55 +302,151 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   background: white;
   opacity: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 .polaroid.snapping .photo-flash {
-  animation: cameraFlash .45s ease-out forwards;
+  animation: cameraFlash .42s ease-out forwards;
 }
 
 .polaroid.snapping .photo-window img {
-  animation: shutterScale .45s ease-out;
+  animation: shutterScale .42s ease-out;
 }
 
 @keyframes cameraFlash {
   0% { opacity: 0; }
-  14% { opacity: .72; }
-  35% { opacity: .3; }
+  12% { opacity: .65; }
+  35% { opacity: 0; }
   100% { opacity: 0; }
 }
 
 @keyframes shutterScale {
   0% { transform: scale(1); }
-  28% { transform: scale(.975); }
-  65% { transform: scale(1.025); }
+  25% { transform: scale(.982); }
+  65% { transform: scale(1.015); }
   100% { transform: scale(1); }
 }
 
-/* NEW: HANDWRITTEN PHOTO CAPTIONS */
+/* CAMERA VIEWFINDER */
 
-.photo-caption {
+.viewfinder {
   position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: 3px;
-  text-align: center;
-  font-family: "Caveat", cursive;
-  font-size: 19px;
-  line-height: 1;
-  color: #65584f;
+  inset: 14px;
+  z-index: 2;
   opacity: 0;
-  transform: translateY(4px);
-  transition: opacity .3s ease, transform .3s ease;
   pointer-events: none;
+  transition: opacity .25s ease;
 }
 
-.polaroid.caption-visible .photo-caption {
-  opacity: 1;
-  transform: translateY(0);
+.polaroid:hover .viewfinder,
+.polaroid:focus-visible .viewfinder {
+  opacity: .8;
 }
 
-/* NEW: HAND-DRAWN ANNOTATIONS */
+.focus-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(255,255,255,.92);
+  border-style: solid;
+  border-width: 0;
+  filter: drop-shadow(0 1px 1px #0004);
+  transition: transform .25s ease;
+}
+
+.focus-tl {
+  top: 0;
+  left: 0;
+  border-top-width: 1.5px;
+  border-left-width: 1.5px;
+  transform: translate(-5px,-5px);
+}
+
+.focus-tr {
+  top: 0;
+  right: 0;
+  border-top-width: 1.5px;
+  border-right-width: 1.5px;
+  transform: translate(5px,-5px);
+}
+
+.focus-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 1.5px;
+  border-left-width: 1.5px;
+  transform: translate(-5px,5px);
+}
+
+.focus-br {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1.5px;
+  border-right-width: 1.5px;
+  transform: translate(5px,5px);
+}
+
+.polaroid:hover .focus-corner,
+.polaroid:focus-visible .focus-corner {
+  transform: translate(0,0);
+}
+
+.polaroid.snapping .focus-tl {
+  transform: translate(5px,5px);
+}
+.polaroid.snapping .focus-tr {
+  transform: translate(-5px,5px);
+}
+.polaroid.snapping .focus-bl {
+  transform: translate(5px,-5px);
+}
+.polaroid.snapping .focus-br {
+  transform: translate(-5px,-5px);
+}
+
+/* CUSTOM CAMERA CURSOR */
+
+.camera-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-100px,-100px,0) scale(.75);
+  transition: opacity .18s ease;
+  will-change: transform;
+}
+
+.camera-cursor svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 1px 1px #fff9);
+  transition: transform .15s ease;
+}
+
+.camera-cursor.visible { opacity: 1; }
+
+.camera-cursor.pressed svg {
+  transform: scale(.82);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .polaroid,
+  .polaroid * {
+    cursor: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .camera-cursor { display: none; }
+  .polaroid { cursor: pointer; }
+}
+
+/* HAND-DRAWN ANNOTATIONS */
 
 .annotation {
   position: absolute;
@@ -401,7 +497,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   to { stroke-dashoffset: 0; }
 }
 
-/* Cornell annotation: left of campus photo */
+/* CORNELL ANNOTATION */
 
 .annotation-cornell {
   left: -2%;
@@ -423,7 +519,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   transition-delay: 1.25s;
 }
 
-/* Travel annotation: above right Polaroid */
+/* TRAVEL ANNOTATION */
 
 .annotation-travel {
   right: 0;
@@ -445,7 +541,16 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   transition-delay: 1.6s;
 }
 
-/* Memories annotation: below lower-right photo */
+.travel-sun {
+  display: inline-block !important;
+  opacity: 1 !important;
+  transform: none !important;
+  font-size: .85em;
+  margin-left: 4px;
+  vertical-align: 1px;
+}
+
+/* MEMORIES ANNOTATION */
 
 .annotation-memories {
   right: 1%;
@@ -465,6 +570,55 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .annotation-memories span {
   transition-delay: 1.95s;
+}
+
+/* TEMPORARY PHOTO INTERACTION HINT */
+
+.photo-hint {
+  position: absolute;
+  left: 24%;
+  bottom: -55px;
+  z-index: 15;
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  color: #a29689;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(7px);
+  transition: opacity .5s ease, transform .5s ease;
+  white-space: nowrap;
+}
+
+.photo-hint.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-hint svg {
+  position: absolute;
+  left: 100%;
+  bottom: 12px;
+  width: 60px;
+  height: 55px;
+  overflow: visible;
+}
+
+.photo-hint path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+}
+
+.photo-hint.show path {
+  animation: hintArrow .75s ease forwards;
+}
+
+@keyframes hintArrow {
+  to { stroke-dashoffset: 0; }
 }
 
 /* ABOUT */
@@ -714,22 +868,10 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .p3 { height: 180px; }
   .p4 { height: 155px; }
 
-  .annotation {
-    font-size: 21px;
-  }
-
-  .annotation-cornell {
-    left: -3%;
-    top: 55px;
-  }
-
-  .annotation-travel {
-    top: -31px;
-  }
-
-  .annotation-memories {
-    bottom: -44px;
-  }
+  .annotation { font-size: 21px; }
+  .annotation-cornell { left: -3%; top: 55px; }
+  .annotation-travel { top: -31px; }
+  .annotation-memories { bottom: -44px; }
 
   .about, .work {
     grid-template-columns: 1fr;
@@ -792,48 +934,23 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .p3 { width: 35%; }
   .p4 { width: 38%; }
 
-  /* Keep mobile annotations unobtrusive */
+  .annotation { font-size: 18px; }
+  .annotation-cornell { left: 0; top: 47px; width: 100px; }
+  .annotation-cornell svg { width: 45px; margin-left: 35px; }
+  .annotation-travel { right: 0; top: -33px; width: 120px; }
+  .annotation-travel svg { width: 40px; margin-left: 30px; }
+  .annotation-memories { right: 0; bottom: -43px; width: 120px; }
+  .annotation-memories svg { width: 40px; margin-left: 35px; }
 
-  .annotation {
+  .photo-hint {
+    left: 10%;
+    bottom: -50px;
     font-size: 18px;
   }
 
-  .annotation-cornell {
-    left: 0;
-    top: 47px;
-    width: 100px;
-  }
-
-  .annotation-cornell svg {
-    width: 45px;
-    margin-left: 35px;
-  }
-
-  .annotation-travel {
-    right: 0;
-    top: -33px;
-    width: 120px;
-  }
-
-  .annotation-travel svg {
-    width: 40px;
-    margin-left: 30px;
-  }
-
-  .annotation-memories {
-    right: 0;
-    bottom: -43px;
-    width: 120px;
-  }
-
-  .annotation-memories svg {
-    width: 40px;
-    margin-left: 35px;
-  }
-
-  .photo-caption {
-    font-size: 15px;
-    bottom: 4px;
+  .photo-hint svg {
+    width: 42px;
+    height: 40px;
   }
 
   .about { padding: 70px 7%; }
@@ -874,14 +991,9 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     overflow-x: auto;
   }
 
-  .annotation svg path {
-    stroke-dashoffset: 0;
-  }
-
-  .annotation span {
-    opacity: 1;
-    transform: none;
-  }
+  .annotation svg path { stroke-dashoffset: 0; }
+  .annotation span { opacity: 1; transform: none; }
+  .camera-cursor { display: none; }
 }
 </style>
 </head>
@@ -953,11 +1065,14 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       <div class="photo-window">
         <img src="assets/IMG_7189.jpeg"
              alt="Cornell clock tower in autumn">
+        <div class="viewfinder" aria-hidden="true">
+          <span class="focus-corner focus-tl"></span>
+          <span class="focus-corner focus-tr"></span>
+          <span class="focus-corner focus-bl"></span>
+          <span class="focus-corner focus-br"></span>
+        </div>
         <div class="photo-flash"></div>
       </div>
-      <figcaption class="photo-caption">
-        my little corner of ithaca ♡
-      </figcaption>
     </figure>
 
     <!-- PORTRAIT -->
@@ -969,11 +1084,14 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       <div class="photo-window">
         <img src="assets/IMG_4700.jpeg"
              alt="Nichole under an arched walkway">
+        <div class="viewfinder" aria-hidden="true">
+          <span class="focus-corner focus-tl"></span>
+          <span class="focus-corner focus-tr"></span>
+          <span class="focus-corner focus-bl"></span>
+          <span class="focus-corner focus-br"></span>
+        </div>
         <div class="photo-flash"></div>
       </div>
-      <figcaption class="photo-caption">
-        just me, being me
-      </figcaption>
     </figure>
 
     <!-- PUERTO RICO -->
@@ -985,11 +1103,14 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       <div class="photo-window">
         <img src="assets/IMG_2892.jpeg"
              alt="Coastal travel view">
+        <div class="viewfinder" aria-hidden="true">
+          <span class="focus-corner focus-tl"></span>
+          <span class="focus-corner focus-tr"></span>
+          <span class="focus-corner focus-bl"></span>
+          <span class="focus-corner focus-br"></span>
+        </div>
         <div class="photo-flash"></div>
       </div>
-      <figcaption class="photo-caption">
-        somewhere sunny ☼
-      </figcaption>
     </figure>
 
     <!-- CORNELL MEMORIES -->
@@ -1001,11 +1122,14 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       <div class="photo-window">
         <img src="assets/DSC07467.jpeg"
              alt="Cornell memories">
+        <div class="viewfinder" aria-hidden="true">
+          <span class="focus-corner focus-tl"></span>
+          <span class="focus-corner focus-tr"></span>
+          <span class="focus-corner focus-bl"></span>
+          <span class="focus-corner focus-br"></span>
+        </div>
         <div class="photo-flash"></div>
       </div>
-      <figcaption class="photo-caption">
-        the little things ♡
-      </figcaption>
     </figure>
 
     <!-- HANDWRITTEN ANNOTATION 1 -->
@@ -1023,7 +1147,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
     <div class="annotation annotation-travel"
          aria-hidden="true">
-      <span>little adventures</span>
+      <span>little adventures <span class="travel-sun">☼</span></span>
       <svg viewBox="0 0 75 70">
         <path d="M9 3 C 18 19, 35 32, 52 53"/>
         <path d="M39 49 L52 53 L51 39"/>
@@ -1039,6 +1163,16 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
         <path d="M12 19 L21 7 L31 17"/>
       </svg>
       <span>moments captured</span>
+    </div>
+
+    <!-- TEMPORARY INTERACTION HINT -->
+
+    <div class="photo-hint" aria-hidden="true">
+      click to capture ↗
+      <svg viewBox="0 0 65 55">
+        <path d="M3 48 C 20 42, 34 28, 49 8"/>
+        <path d="M36 11 L49 8 L47 23"/>
+      </svg>
     </div>
 
   </div>
@@ -1237,6 +1371,27 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 </main>
 
+<!-- CUSTOM CAMERA CURSOR -->
+
+<div class="camera-cursor" aria-hidden="true">
+  <svg viewBox="0 0 36 36" fill="none">
+    <path d="M7 12h5l2.5-3h7l2.5 3h5
+             a2 2 0 0 1 2 2v13
+             a2 2 0 0 1-2 2H7
+             a2 2 0 0 1-2-2V14
+             a2 2 0 0 1 2-2Z"
+          fill="#f5f1ed"
+          stroke="#191715"
+          stroke-width="1.5"
+          stroke-linejoin="round"/>
+    <circle cx="18" cy="20" r="5"
+            stroke="#191715"
+            stroke-width="1.5"/>
+    <circle cx="27" cy="16" r="1"
+            fill="#191715"/>
+  </svg>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1303,19 +1458,51 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* NEW: HAND-DRAWN ARROW ANIMATIONS */
+  /* HAND-DRAWN ARROW ANIMATIONS */
 
   const collage = document.querySelector(".collage");
+  const photoHint = document.querySelector(".photo-hint");
+
+  let hintDismissed = false;
+  let hintShowTimer = null;
+  let hintHideTimer = null;
+
+  function dismissHint() {
+    hintDismissed = true;
+    clearTimeout(hintShowTimer);
+    clearTimeout(hintHideTimer);
+    photoHint.classList.remove("show");
+  }
+
+  function startCollageAnimations() {
+    if (collage.classList.contains("annotations-ready")) return;
+
+    collage.classList.add("annotations-ready");
+
+    if (!reduced && !hintDismissed) {
+      // Wait until the annotation entrance sequence finishes.
+      hintShowTimer = setTimeout(() => {
+        if (hintDismissed) return;
+
+        photoHint.classList.add("show");
+
+        hintHideTimer = setTimeout(() => {
+          photoHint.classList.remove("show");
+        }, 3500);
+
+      }, 2700);
+    }
+  }
 
   if (collage) {
     if (reduced) {
-      collage.classList.add("annotations-ready");
+      startCollageAnimations();
     } else if ("IntersectionObserver" in window) {
       const annotationObserver = new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              collage.classList.add("annotations-ready");
+              startCollageAnimations();
               annotationObserver.unobserve(collage);
             }
           });
@@ -1325,45 +1512,113 @@ document.addEventListener("DOMContentLoaded", () => {
 
       annotationObserver.observe(collage);
     } else {
-      collage.classList.add("annotations-ready");
+      startCollageAnimations();
     }
   }
 
-  /* NEW: INTERACTIVE POLAROID CAMERA SHUTTER */
+  /* CUSTOM CAMERA CURSOR */
 
+  const cameraCursor = document.querySelector(".camera-cursor");
   const polaroids = document.querySelectorAll(".polaroid");
 
-  function takePhoto(polaroid) {
+  const finePointer = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+  ).matches;
 
+  let cursorX = -100;
+  let cursorY = -100;
+  let renderedX = -100;
+  let renderedY = -100;
+  let cursorActive = false;
+  let cursorFrame = null;
+
+  function animateCursor() {
+    if (!cursorActive) {
+      cursorFrame = null;
+      return;
+    }
+
+    renderedX += (cursorX - renderedX) * .35;
+    renderedY += (cursorY - renderedY) * .35;
+
+    cameraCursor.style.transform =
+      `translate3d(${renderedX - 17}px, ${renderedY - 17}px, 0)`;
+
+    cursorFrame = requestAnimationFrame(animateCursor);
+  }
+
+  function showCameraCursor(event) {
+    if (!finePointer || reduced) return;
+
+    cursorX = event.clientX;
+    cursorY = event.clientY;
+    renderedX = cursorX;
+    renderedY = cursorY;
+
+    cameraCursor.style.transform =
+      `translate3d(${cursorX - 17}px, ${cursorY - 17}px, 0)`;
+
+    cursorActive = true;
+    cameraCursor.classList.add("visible");
+
+    if (cursorFrame === null) {
+      cursorFrame = requestAnimationFrame(animateCursor);
+    }
+  }
+
+  function hideCameraCursor() {
+    cursorActive = false;
+    cameraCursor.classList.remove("visible");
+    cameraCursor.classList.remove("pressed");
+  }
+
+  /* POLAROID SHUTTER EFFECT */
+
+  function takePhoto(polaroid) {
     if (polaroid.classList.contains("snapping")) return;
 
-    // Hide existing caption before replaying the effect.
-    polaroid.classList.remove("caption-visible");
-
-    // Restart shutter animation.
-    polaroid.classList.remove("snapping");
-    void polaroid.offsetWidth;
+    dismissHint();
 
     polaroid.classList.add("snapping");
+    cameraCursor.classList.add("pressed");
 
-    // Reveal handwritten caption after the flash.
-    setTimeout(() => {
-      polaroid.classList.add("caption-visible");
-    }, reduced ? 0 : 400);
-
-    // Reset shutter so the photo can be clicked again.
     setTimeout(() => {
       polaroid.classList.remove("snapping");
-    }, reduced ? 0 : 480);
+      cameraCursor.classList.remove("pressed");
+    }, reduced ? 0 : 430);
   }
 
   polaroids.forEach(polaroid => {
+
+    polaroid.addEventListener("pointerenter", event => {
+      if (event.pointerType === "mouse") {
+        showCameraCursor(event);
+      }
+    });
+
+    polaroid.addEventListener("pointermove", event => {
+      if (event.pointerType !== "mouse" || !finePointer) return;
+
+      cursorX = event.clientX;
+      cursorY = event.clientY;
+    });
+
+    polaroid.addEventListener("pointerleave", hideCameraCursor);
+
+    polaroid.addEventListener("pointerdown", () => {
+      if (!reduced) {
+        cameraCursor.classList.add("pressed");
+      }
+    });
+
+    polaroid.addEventListener("pointerup", () => {
+      cameraCursor.classList.remove("pressed");
+    });
 
     polaroid.addEventListener("click", () => {
       takePhoto(polaroid);
     });
 
-    // Keyboard accessibility.
     polaroid.addEventListener("keydown", event => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
@@ -1371,7 +1626,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    polaroid.addEventListener("blur", hideCameraCursor);
   });
+
+  window.addEventListener("blur", hideCameraCursor);
 
 });
 </script>
