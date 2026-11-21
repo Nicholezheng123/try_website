@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nichole Zheng — Portfolio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 :root {
   --cream: #f5f1ed;
@@ -176,7 +178,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ROLE LABELS — REFINED SPACING */
+/* ROLE LABELS */
 
 .hero-roles {
   display: flex;
@@ -204,6 +206,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   position: relative;
   width: 100%;
   height: 480px;
+  isolation: isolate;
 }
 
 .polaroid {
@@ -212,12 +215,23 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   padding: 11px 11px 29px;
   background: white;
   box-shadow: 0 8px 25px #0002;
-  transition: transform .3s;
+  transition: transform .3s, box-shadow .3s;
+  cursor: pointer;
+  border: 0;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.polaroid:hover {
+.polaroid:hover,
+.polaroid:focus-visible {
   z-index: 10;
   transform: rotate(0deg) translateY(-8px);
+  box-shadow: 0 15px 35px #0003;
+}
+
+.polaroid:focus-visible {
+  outline: 2px solid #8b6f60;
+  outline-offset: 5px;
 }
 
 .p1 {
@@ -262,10 +276,196 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   width: 80px;
   height: 27px;
   z-index: 7;
+  pointer-events: none;
 }
 
 .t1 { left: 52%; top: 9px; transform: rotate(-4deg); }
 .t2 { right: 12%; top: 20px; transform: rotate(5deg); }
+
+/* NEW: CAMERA SHUTTER INTERACTIONS */
+
+.photo-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #e8e4df;
+}
+
+.photo-window img {
+  transition: transform .4s ease;
+}
+
+.photo-flash {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.polaroid.snapping .photo-flash {
+  animation: cameraFlash .45s ease-out forwards;
+}
+
+.polaroid.snapping .photo-window img {
+  animation: shutterScale .45s ease-out;
+}
+
+@keyframes cameraFlash {
+  0% { opacity: 0; }
+  14% { opacity: .72; }
+  35% { opacity: .3; }
+  100% { opacity: 0; }
+}
+
+@keyframes shutterScale {
+  0% { transform: scale(1); }
+  28% { transform: scale(.975); }
+  65% { transform: scale(1.025); }
+  100% { transform: scale(1); }
+}
+
+/* NEW: HANDWRITTEN PHOTO CAPTIONS */
+
+.photo-caption {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 3px;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  font-size: 19px;
+  line-height: 1;
+  color: #65584f;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
+}
+
+.polaroid.caption-visible .photo-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* NEW: HAND-DRAWN ANNOTATIONS */
+
+.annotation {
+  position: absolute;
+  z-index: 12;
+  pointer-events: none;
+  color: #897c70;
+  font-family: "Caveat", cursive;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.annotation span {
+  display: block;
+  opacity: 0;
+  transform: translateY(6px) rotate(-3deg);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.annotation svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.annotation svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+.collage.annotations-ready .annotation svg path {
+  animation: drawArrow 1.2s ease forwards;
+}
+
+.collage.annotations-ready .annotation span {
+  opacity: 1;
+  transform: translateY(0) rotate(-3deg);
+}
+
+@keyframes drawArrow {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Cornell annotation: left of campus photo */
+
+.annotation-cornell {
+  left: -2%;
+  top: 59px;
+  width: 120px;
+  transform: rotate(-9deg);
+}
+
+.annotation-cornell svg {
+  width: 80px;
+  margin: 6px 0 0 42px;
+}
+
+.annotation-cornell svg path {
+  animation-delay: .3s !important;
+}
+
+.annotation-cornell span {
+  transition-delay: 1.25s;
+}
+
+/* Travel annotation: above right Polaroid */
+
+.annotation-travel {
+  right: 0;
+  top: -43px;
+  width: 165px;
+  transform: rotate(5deg);
+}
+
+.annotation-travel svg {
+  width: 65px;
+  margin: 5px 0 0 34px;
+}
+
+.annotation-travel svg path {
+  animation-delay: .65s !important;
+}
+
+.annotation-travel span {
+  transition-delay: 1.6s;
+}
+
+/* Memories annotation: below lower-right photo */
+
+.annotation-memories {
+  right: 1%;
+  bottom: -54px;
+  width: 155px;
+  transform: rotate(-5deg);
+}
+
+.annotation-memories svg {
+  width: 60px;
+  margin: 0 0 2px 45px;
+}
+
+.annotation-memories svg path {
+  animation-delay: 1s !important;
+}
+
+.annotation-memories span {
+  transition-delay: 1.95s;
+}
 
 /* ABOUT */
 
@@ -421,7 +621,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .card-body p { font-size: 14px; margin: 0; }
 
-/* I WORK WITH — SMALLER, CLEANER */
+/* I WORK WITH */
 
 .ticker {
   padding: 65px 0 70px;
@@ -514,6 +714,23 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .p3 { height: 180px; }
   .p4 { height: 155px; }
 
+  .annotation {
+    font-size: 21px;
+  }
+
+  .annotation-cornell {
+    left: -3%;
+    top: 55px;
+  }
+
+  .annotation-travel {
+    top: -31px;
+  }
+
+  .annotation-memories {
+    bottom: -44px;
+  }
+
   .about, .work {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -550,8 +767,8 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
   .hero {
     grid-template-columns: 1fr;
-    padding: 65px 7% 50px;
-    gap: 30px;
+    padding: 65px 7% 75px;
+    gap: 65px;
     min-height: 0;
   }
 
@@ -574,6 +791,50 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .p2 { left: 33%; width: 43%; }
   .p3 { width: 35%; }
   .p4 { width: 38%; }
+
+  /* Keep mobile annotations unobtrusive */
+
+  .annotation {
+    font-size: 18px;
+  }
+
+  .annotation-cornell {
+    left: 0;
+    top: 47px;
+    width: 100px;
+  }
+
+  .annotation-cornell svg {
+    width: 45px;
+    margin-left: 35px;
+  }
+
+  .annotation-travel {
+    right: 0;
+    top: -33px;
+    width: 120px;
+  }
+
+  .annotation-travel svg {
+    width: 40px;
+    margin-left: 30px;
+  }
+
+  .annotation-memories {
+    right: 0;
+    bottom: -43px;
+    width: 120px;
+  }
+
+  .annotation-memories svg {
+    width: 40px;
+    margin-left: 35px;
+  }
+
+  .photo-caption {
+    font-size: 15px;
+    bottom: 4px;
+  }
 
   .about { padding: 70px 7%; }
 
@@ -611,6 +872,15 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     mask-image: none;
     -webkit-mask-image: none;
     overflow-x: auto;
+  }
+
+  .annotation svg path {
+    stroke-dashoffset: 0;
+  }
+
+  .annotation span {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>
@@ -668,25 +938,109 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     </a>
   </div>
 
+  <!-- INTERACTIVE POLAROID COLLAGE -->
+
   <div class="collage" aria-label="Personal photo collage">
     <div class="tape t1"></div>
     <div class="tape t2"></div>
 
-    <figure class="polaroid p1">
-      <img src="assets/IMG_7189.jpeg" alt="Cornell clock tower in autumn">
+    <!-- CORNELL CAMPUS -->
+
+    <figure class="polaroid p1"
+            tabindex="0"
+            role="button"
+            aria-label="Take a photo of Cornell campus">
+      <div class="photo-window">
+        <img src="assets/IMG_7189.jpeg"
+             alt="Cornell clock tower in autumn">
+        <div class="photo-flash"></div>
+      </div>
+      <figcaption class="photo-caption">
+        my little corner of ithaca ♡
+      </figcaption>
     </figure>
 
-    <figure class="polaroid p2">
-      <img src="assets/IMG_4700.jpeg" alt="Nichole under an arched walkway">
+    <!-- PORTRAIT -->
+
+    <figure class="polaroid p2"
+            tabindex="0"
+            role="button"
+            aria-label="Take a portrait photo">
+      <div class="photo-window">
+        <img src="assets/IMG_4700.jpeg"
+             alt="Nichole under an arched walkway">
+        <div class="photo-flash"></div>
+      </div>
+      <figcaption class="photo-caption">
+        just me, being me
+      </figcaption>
     </figure>
 
-    <figure class="polaroid p3">
-      <img src="assets/IMG_2892.jpeg" alt="Coastal travel view">
+    <!-- PUERTO RICO -->
+
+    <figure class="polaroid p3"
+            tabindex="0"
+            role="button"
+            aria-label="Take a travel photo">
+      <div class="photo-window">
+        <img src="assets/IMG_2892.jpeg"
+             alt="Coastal travel view">
+        <div class="photo-flash"></div>
+      </div>
+      <figcaption class="photo-caption">
+        somewhere sunny ☼
+      </figcaption>
     </figure>
 
-    <figure class="polaroid p4">
-      <img src="assets/DSC07467.jpeg" alt="Cornell memories">
+    <!-- CORNELL MEMORIES -->
+
+    <figure class="polaroid p4"
+            tabindex="0"
+            role="button"
+            aria-label="Take a photo of Cornell memories">
+      <div class="photo-window">
+        <img src="assets/DSC07467.jpeg"
+             alt="Cornell memories">
+        <div class="photo-flash"></div>
+      </div>
+      <figcaption class="photo-caption">
+        the little things ♡
+      </figcaption>
     </figure>
+
+    <!-- HANDWRITTEN ANNOTATION 1 -->
+
+    <div class="annotation annotation-cornell"
+         aria-hidden="true">
+      <span>cornell ♡</span>
+      <svg viewBox="0 0 90 75">
+        <path d="M7 5 C 24 9, 40 22, 58 57"/>
+        <path d="M47 49 L58 57 L61 43"/>
+      </svg>
+    </div>
+
+    <!-- HANDWRITTEN ANNOTATION 2 -->
+
+    <div class="annotation annotation-travel"
+         aria-hidden="true">
+      <span>little adventures</span>
+      <svg viewBox="0 0 75 70">
+        <path d="M9 3 C 18 19, 35 32, 52 53"/>
+        <path d="M39 49 L52 53 L51 39"/>
+      </svg>
+    </div>
+
+    <!-- HANDWRITTEN ANNOTATION 3 -->
+
+    <div class="annotation annotation-memories"
+         aria-hidden="true">
+      <svg viewBox="0 0 75 55">
+        <path d="M48 50 C 34 40, 24 25, 21 7"/>
+        <path d="M12 19 L21 7 L31 17"/>
+      </svg>
+      <span>moments captured</span>
+    </div>
+
   </div>
 </section>
 
@@ -886,6 +1240,8 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* EXISTING HERO LOADING ANIMATION */
+
   const text = document.getElementById("changing-text");
   const icon = document.querySelector(".tagline-icon");
 
@@ -917,6 +1273,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2200);
   }
 
+  /* EXISTING SCROLL REVEAL ANIMATIONS */
+
   const reveal = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window) {
@@ -934,6 +1292,8 @@ document.addEventListener("DOMContentLoaded", () => {
     reveal.forEach(el => el.classList.add("visible"));
   }
 
+  /* EXISTING NAVIGATION INTERACTIONS */
+
   const links = document.querySelectorAll(".nav nav a");
 
   links.forEach(a => {
@@ -941,6 +1301,76 @@ document.addEventListener("DOMContentLoaded", () => {
       links.forEach(l => l.classList.remove("active"));
       a.classList.add("active");
     });
+  });
+
+  /* NEW: HAND-DRAWN ARROW ANIMATIONS */
+
+  const collage = document.querySelector(".collage");
+
+  if (collage) {
+    if (reduced) {
+      collage.classList.add("annotations-ready");
+    } else if ("IntersectionObserver" in window) {
+      const annotationObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              collage.classList.add("annotations-ready");
+              annotationObserver.unobserve(collage);
+            }
+          });
+        },
+        { threshold: .35 }
+      );
+
+      annotationObserver.observe(collage);
+    } else {
+      collage.classList.add("annotations-ready");
+    }
+  }
+
+  /* NEW: INTERACTIVE POLAROID CAMERA SHUTTER */
+
+  const polaroids = document.querySelectorAll(".polaroid");
+
+  function takePhoto(polaroid) {
+
+    if (polaroid.classList.contains("snapping")) return;
+
+    // Hide existing caption before replaying the effect.
+    polaroid.classList.remove("caption-visible");
+
+    // Restart shutter animation.
+    polaroid.classList.remove("snapping");
+    void polaroid.offsetWidth;
+
+    polaroid.classList.add("snapping");
+
+    // Reveal handwritten caption after the flash.
+    setTimeout(() => {
+      polaroid.classList.add("caption-visible");
+    }, reduced ? 0 : 400);
+
+    // Reset shutter so the photo can be clicked again.
+    setTimeout(() => {
+      polaroid.classList.remove("snapping");
+    }, reduced ? 0 : 480);
+  }
+
+  polaroids.forEach(polaroid => {
+
+    polaroid.addEventListener("click", () => {
+      takePhoto(polaroid);
+    });
+
+    // Keyboard accessibility.
+    polaroid.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        takePhoto(polaroid);
+      }
+    });
+
   });
 
 });
