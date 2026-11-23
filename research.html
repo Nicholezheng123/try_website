@@ -1,33 +1,1720 @@
+
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research — Nichole Zheng</title><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f1ed">
+<title>Research — Nichole Zheng</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#f5f1ed;--paper:#fbf9f5;--ink:#1c1917;--muted:#726d66;--sage:#a6b59d;--line:#ddd6cd}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:pointer}.nav{max-width:1600px;margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:20px 5%;min-height:88px}.logo{font:bold italic 36px Georgia,serif}.navlinks{display:flex;gap:30px}.navlinks a{font-size:13px;font-weight:700;letter-spacing:.08em;padding-bottom:9px}.navlinks .active{border-bottom:2px solid}.connect{justify-self:end;background:var(--ink);color:white;padding:16px 26px;border-radius:35px;font-weight:bold;font-size:13px}.wrap{max-width:1250px;margin:auto;padding:0 6%}.eyebrow{font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase}.hero{padding:95px 0 90px}.hero h1{font:normal clamp(54px,7vw,106px)/1.05 Georgia,serif;letter-spacing:-.055em;margin:24px 0}.hero p{font:normal 20px/1.7 Georgia,serif;color:#625b55;max-width:720px}.categories{display:flex;flex-wrap:wrap;gap:12px;margin-top:35px}.categories span,.tag{border:1px solid var(--line);border-radius:30px;padding:11px 17px;color:#625b55;font-size:12px}.arrow{font:32px Caveat,cursive;color:#81937a;display:inline-block;margin-top:35px;animation:bob 2.5s ease-in-out infinite}@keyframes bob{50%{transform:translateY(7px)}}.index{position:sticky;top:0;z-index:10;background:#f5f1edf2;border-block:1px solid var(--line);backdrop-filter:blur(8px)}.index .wrap{display:flex;gap:32px;align-items:center;overflow-x:auto;white-space:nowrap;padding-top:16px;padding-bottom:16px}.index a{font-size:12px;color:#746d65}.index a.active{color:#34492f;font-weight:700}.project{padding:90px 0;border-bottom:1px solid var(--line);scroll-margin-top:70px}.project.alt{background:#faf8f4}.project-head{display:grid;grid-template-columns:1fr 2.1fr;gap:40px;align-items:start}.project-number{font:italic 25px Georgia,serif;color:#9bac94}.project h2{font:normal clamp(39px,4.3vw,64px)/1.12 Georgia,serif;letter-spacing:-.035em;margin:15px 0 22px}.meta{font-size:12px;letter-spacing:.04em;color:#80786f;margin-bottom:22px}.lead{font:18px/1.7 Georgia,serif;color:#4b443f}.columns{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:35px 0}.panel{background:var(--paper);border:1px solid #e5ded6;padding:28px;border-radius:3px}.panel h3{font:normal 27px Georgia,serif;margin:0 0 16px}.panel p,.panel li{font-size:14px;line-height:1.8;color:#645e57}.panel ul{padding-left:20px}.label{font-size:11px;font-weight:bold;letter-spacing:.14em;color:#7c8d74;text-transform:uppercase}.viz{margin:30px 0;background:#fffdfa;border:1px solid #e4ddd5;padding:30px}.viz h3{font:normal 29px Georgia,serif;margin:0 0 12px}.note{font-size:12px;line-height:1.6;color:#857c73}.controls{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.control{border:1px solid #ccd4c6;background:transparent;border-radius:24px;padding:9px 15px;font-size:12px}.control.active,.control:hover{background:#dce5d7}.chart{width:100%;height:auto;max-height:320px;display:block}.bars{display:grid;gap:17px;margin-top:25px}.bar-row{display:grid;grid-template-columns:minmax(110px,1.2fr) 3fr 50px;align-items:center;gap:14px;font-size:13px}.bar-track{height:22px;background:#eeeae4}.bar-fill{height:100%;background:#a5b69e;transition:width .55s ease}.bar-row:nth-child(even) .bar-fill{background:#c7b9a4}.workflow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:28px 0}.step{background:#e7ede3;border:1px solid #cad6c5;padding:16px 14px;font-size:12px;flex:1 1 130px;text-align:center}.step-arrow{color:#7f9476}.network{width:100%;height:250px}.network line{stroke:#c6cfc0;stroke-width:2}.network circle{fill:#91a68a;stroke:white;stroke-width:2}.network text{font:12px Arial;fill:#5b6257}.comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.metric-value{font:44px Georgia,serif;margin:12px 0}.metric-box{padding:20px;background:#edf1e9}.metric-box:nth-child(2){background:#eee9e0}.timetable{display:grid;grid-template-columns:90px repeat(4,1fr);gap:6px;margin-top:18px}.cell{min-height:55px;background:#e6ebe2;padding:12px 7px;font-size:12px;text-align:center;border:1px solid #d6dfd0}.cell.head{background:#ded8d0;font-weight:bold}.cell.empty{background:#f8f6f2}.posters{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:30px}.poster{display:block;background:#fff;padding:12px;box-shadow:0 8px 25px #251d1714;transition:transform .2s}.poster:hover{transform:translateY(-7px)}.poster iframe{width:100%;height:210px;border:1px solid #e5e0d9;pointer-events:none}.poster h3{font:normal 20px Georgia,serif}.poster small{font-size:12px;color:#6b7f65}.gallery{padding:90px 0}.gallery h2{font:normal 56px Georgia,serif;margin:15px 0}.footer{border-top:1px solid var(--line);padding:30px 6%;font-size:12px;color:#777}.reveal{opacity:0;transform:translateY(18px);transition:.65s}.reveal.show{opacity:1;transform:none}select{padding:10px;border:1px solid var(--line);background:white;max-width:100%}@media(max-width:850px){.nav{grid-template-columns:auto 1fr}.navlinks{grid-column:1/-1;grid-row:2;justify-content:center;gap:18px;flex-wrap:wrap}.connect{grid-column:2;grid-row:1}.project-head,.columns,.comparison-grid{grid-template-columns:1fr}.posters{grid-template-columns:1fr 1fr}.hero{padding:65px 0}.project{padding:65px 0}}@media(max-width:550px){.posters{grid-template-columns:1fr}.navlinks a{font-size:11px}.hero h1{font-size:54px}.viz{padding:18px}.bar-row{grid-template-columns:90px 1fr 42px}.timetable{grid-template-columns:60px repeat(4,1fr)}.cell{font-size:10px;padding:8px 3px}.gallery h2{font-size:42px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
-</style></head><body>
-<header class="nav"><a class="logo" href="index.html">NZ</a><nav class="navlinks" aria-label="Main navigation"><a href="index.html">HOME</a><a href="about.html">ABOUT</a><a href="index.html#work">WORK</a><a href="research.html" class="active" aria-current="page">RESEARCH</a><a href="index.html#life">LIFE</a></nav><a class="connect" href="mailto:Nicholezheng123@gmail.com">Let's Connect ↗</a></header>
-<main><section class="hero wrap"><div class="eyebrow">RESEARCH &amp; EXPLORATION</div><h1>Curiosity,<br>backed by data.</h1><p>A collection of research projects exploring how data, algorithms, and technology can help us better understand and improve the world around us.</p><div class="categories"><span>Scientific Research &amp; AI</span><span>Optimization &amp; Decision-Making</span><span>Sustainable Computing</span></div><a href="#scientific" class="arrow" aria-label="Explore research projects">explore below ↓</a></section>
-<nav class="index" aria-label="Research project index"><div class="wrap"><a href="#scientific">01 — Scientific Collaboration</a><a href="#scheduling">02 — Exam Scheduling</a><a href="#serverless">03 — Sustainable Computing</a></div></nav>
-<section class="project" id="scientific"><div class="wrap"><div class="project-head reveal"><div><div class="project-number">01 / CURRENT RESEARCH</div><span class="tag">Ongoing</span></div><div><div class="eyebrow">SCIENTIFIC TEAM COMPOSITION &amp; AI</div><h2>Understanding Scientific Collaboration in the Age of AI</h2><div class="meta">CORNELL UNIVERSITY · PROFESSOR YIAN YIN · ONGOING</div><p class="lead">I'm studying how scientific team composition, institutional affiliations, and AI-tool adoption relate to research outcomes. My current work examines ICLR submissions, matching university and company affiliations to explore patterns in ratings and acceptance.</p></div></div>
-<div class="columns reveal"><div class="panel"><div class="label">Questions I'm exploring</div><h3>Who collaborates, and what changes?</h3><p>How do institutional affiliations, team composition and research-tool use relate to evaluation outcomes? I treat these as associations, not evidence of causation.</p></div><div class="panel"><div class="label">My contribution</div><h3>From messy names to useful analysis</h3><ul><li>Clean and validate publication datasets</li><li>Match inconsistent affiliations across sources</li><li>Classify institutions into tiers using Python</li><li>Analyze ratings, acceptance and missing-data patterns</li></ul></div></div>
-<div class="viz reveal"><div class="label">INTERACTIVE ANALYSIS GALLERY</div><h3>Acceptance rates by institution tier</h3><p class="note">Data not yet supplied. The chart is intentionally empty rather than showing invented acceptance rates. Add verified values to <code>researchData</code> in the script.</p><div class="controls"><button class="control active" data-affiliation="university">University</button><button class="control" data-affiliation="company">Company</button></div><div id="acceptanceChart" class="bars" role="img" aria-label="Acceptance rate chart awaiting verified research data"></div></div>
-<div class="columns"><div class="viz reveal" style="margin:0"><h3>Average paper rating by tier</h3><p class="note">Verified means and sample sizes can be added to the data object. No preliminary values are represented as findings.</p><div id="ratingChart" class="bars"></div></div><div class="viz reveal" style="margin:0"><h3>Collaboration network</h3><p class="note">Conceptual illustration only — nodes and links are not empirical collaboration data.</p><svg class="network" viewBox="0 0 440 250" role="img" aria-label="Conceptual network of connected research institutions"><g><line x1="90" y1="120" x2="220" y2="45"/><line x1="90" y1="120" x2="220" y2="205"/><line x1="220" y1="45" x2="340" y2="105"/><line x1="220" y1="205" x2="340" y2="105"/><line x1="220" y1="45" x2="220" y2="205"/></g><g><circle cx="90" cy="120" r="22"/><circle cx="220" cy="45" r="19"/><circle cx="220" cy="205" r="19"/><circle cx="340" cy="105" r="23"/></g><g><text x="90" y="160" text-anchor="middle">Institution A</text><text x="220" y="18" text-anchor="middle">B</text><text x="220" y="240" text-anchor="middle">C</text><text x="340" y="147" text-anchor="middle">D</text></g></svg></div></div>
-<div class="viz reveal"><h3>My analysis workflow</h3><div class="workflow"><div class="step">Publication data</div><span class="step-arrow">→</span><div class="step">Data cleaning</div><span class="step-arrow">→</span><div class="step">Affiliation matching</div><span class="step-arrow">→</span><div class="step">Institution classification</div><span class="step-arrow">→</span><div class="step">Statistical analysis</div><span class="step-arrow">→</span><div class="step">Research insights</div></div><p class="note">Research is ongoing; these are methods and questions, not published conclusions.</p></div></div></section>
-<section class="project alt" id="scheduling"><div class="wrap"><div class="project-head reveal"><div><div class="project-number">02 / OPTIMIZATION</div></div><div><div class="eyebrow">UNIVERSITY EXAM SCHEDULING</div><h2>Making Exam Scheduling Smarter</h2><div class="meta">CORNELL UNIVERSITY · PROFESSOR DAVID SHMOYS</div><p class="lead">Exam scheduling affects students' workloads and well-being. I explored integer programming models that balance instructor preferences, exam conflicts and high-stress patterns while helping teams visualize alternative schedules.</p></div></div>
-<div class="columns reveal"><div class="panel"><div class="label">PART A · PRELIMINARY EXAMS</div><h3>Improving prelim schedules</h3><p>We explored integer programming, parameter tuning, makeup options and exam-spacing visualizations. In the poster's specific experiments, removing a slot before spring break increased conflicts more than fourfold; a greedy splitting approach reduced conflicts to approximately half the original schedule.</p><p class="note">These results describe particular tested schedules, not a general guarantee.</p></div><div class="panel"><div class="label">PART B · FINAL EXAMS</div><h3>Intelligent block assignment</h3><p>We compared three versus four daily exam slots using integer programming, weighted co-enrollment conflict penalties, and student workload metrics. The chart below shows the reported experimental comparison.</p></div></div>
-<div class="viz reveal"><h3>Three slots vs. four slots per day</h3><label class="label" for="metricSelect">SELECT A SCHEDULING METRIC</label><div class="controls"><select id="metricSelect"></select></div><div id="metricComparison" class="comparison-grid" aria-live="polite"></div><p class="note">Counts reported in the Final Scheduling CURB poster. Both compared configurations had zero exam conflicts. Lower counts indicate fewer instances of the selected high-stress pattern.</p></div>
-<div class="viz reveal"><h3>What happens if the last block stays empty?</h3><div class="comparison-grid"><div class="metric-box"><div class="label">4 slots · regular</div><div class="metric-value">6</div><div>Quadruple-exam patterns</div><p class="note">Other back-to-backs: 2,149</p></div><div class="metric-box"><div class="label">4 slots · final block empty</div><div class="metric-value">0</div><div>Quadruple-exam patterns</div><p class="note">Other back-to-backs: 2,599</p></div></div><p class="note">The poster reports that eliminating the last daily block removed quadruple-exam patterns and evening/morning back-to-backs, but increased other back-to-back cases. Trade-offs remain.</p></div>
-<div class="viz reveal"><h3>Explore a sample block assignment</h3><p class="note">Illustrative timetable only, not an actual Cornell exam schedule. Click a filled slot to move the sample exam into another available slot.</p><div id="timetable" class="timetable" aria-label="Interactive sample exam timetable"></div><p id="timetableMessage" class="note" aria-live="polite">Choose an exam, then choose an empty slot.</p></div></div></section>
-<section class="project" id="serverless"><div class="wrap"><div class="project-head reveal"><div><div class="project-number">03 / COMPUTING</div></div><div><div class="eyebrow">GREEN SERVERLESS COMPUTING</div><h2>Toward More Sustainable AI Computing</h2><div class="meta">VINUNIVERSITY · HANOI, VIETNAM</div><p class="lead">I explored how serverless architectures could make AI training more resource-efficient through dynamic resource allocation, and investigated the trade-offs among performance, scalability and infrastructure overhead.</p></div></div>
-<div class="columns reveal"><div class="panel"><h3>Traditional infrastructure</h3><div class="workflow"><div class="step">AI workload</div><span>→</span><div class="step">Provisioned servers</div><span>→</span><div class="step">Training</div></div><p>Dedicated capacity may remain provisioned even when workload demand varies.</p></div><div class="panel"><h3>Serverless approach</h3><div class="workflow"><div class="step">AI workload</div><span>→</span><div class="step">On-demand resources</div><span>→</span><div class="step">Training</div></div><p>Resources can be allocated in response to demand, with overhead and performance trade-offs to evaluate.</p></div></div>
-<div class="viz reveal"><h3>AI training research workflow</h3><div class="workflow"><div class="step">Input data</div><span>→</span><div class="step">Preprocessing</div><span>→</span><div class="step">Model training</div><span>→</span><div class="step">Compute resource monitoring</div><span>→</span><div class="step">Performance evaluation</div></div><p class="note">Conceptual architecture overview. Numerical performance or energy savings are intentionally omitted because verified measurements were not available for this build.</p></div></div></section>
-<section class="gallery wrap" id="posters"><div class="eyebrow">RESEARCH ARTIFACTS</div><h2>From Research to Results</h2><p class="lead">A closer look at the questions, experiments, and ideas behind the work.</p><div class="posters"><a class="poster" href="assets/PrelimPosterSP25.pdf" target="_blank" rel="noopener"><iframe title="Preliminary exam scheduling poster preview" loading="lazy" src="assets/PrelimPosterSP25.pdf#toolbar=0"></iframe><h3>Preliminary Exam Scheduling</h3><small>View Poster ↗</small></a><a class="poster" href="assets/Final Scheduling CURB Poster.pdf" target="_blank" rel="noopener"><iframe title="Final exam scheduling poster preview" loading="lazy" src="assets/Final Scheduling CURB Poster.pdf#toolbar=0"></iframe><h3>Final Exam Scheduling</h3><small>View Poster ↗</small></a><a class="poster" href="assets/Green Serverless Poster.pdf" target="_blank" rel="noopener"><iframe title="Green serverless poster preview" loading="lazy" src="assets/Green Serverless Poster.pdf#toolbar=0"></iframe><h3>Green Serverless Computing</h3><small>View Poster ↗</small></a></div><p class="note">Poster previews display the actual PDFs when the three named files are placed in your website's <code>assets/</code> folder. No poster images have been fabricated.</p></section></main><footer class="footer">© Nichole Zheng · Research, curiosity &amp; discovery ♡</footer>
+:root {
+  --bg: #f5f1ed;
+  --paper: #fbf9f5;
+  --ink: #1c1917;
+  --muted: #726d66;
+  --sage: #a6b59d;
+  --brown: #927b70;
+  --line: #ddd6cd;
+
+  /* Shared typography scale */
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-hand: Caveat, cursive;
+
+  --type-hero: clamp(49px, 4.55vw, 72px);
+  --type-section: clamp(35px, 3.5vw, 52px);
+  --type-subsection: clamp(23px, 2.2vw, 29px);
+  --type-body: 15px;
+  --type-lead: 17px;
+  --type-label: 11px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+a { color: inherit; text-decoration: none; }
+button, select { font: inherit; }
+button { cursor: pointer; }
+
+.nav {
+  max-width: 1600px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 5%;
+  min-height: 88px;
+}
+
+.logo {
+  font: bold italic 36px var(--font-display);
+}
+
+.navlinks {
+  display: flex;
+  gap: 30px;
+}
+
+.navlinks a {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding-bottom: 9px;
+}
+
+.navlinks .active { border-bottom: 2px solid; }
+
+.connect {
+  justify-self: end;
+  background: var(--ink);
+  color: white;
+  padding: 16px 26px;
+  border-radius: 35px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.wrap {
+  max-width: 1250px;
+  margin: auto;
+  padding: 0 6%;
+}
+
+.eyebrow {
+  font-size: var(--type-label);
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}
+
+/* REFINED RESEARCH HERO */
+
+.hero {
+  padding-top: 55px;
+  padding-bottom: 65px;
+  min-height: 580px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+  gap: clamp(35px, 5vw, 85px);
+  align-items: center;
+}
+
+.hero-copy { min-width: 0; }
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-hero);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -.055em;
+  margin: 22px 0 24px;
+}
+
+.hero p {
+  font: normal var(--type-lead)/1.75 var(--font-display);
+  color: #625b55;
+  max-width: 480px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.categories span, .tag {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 10px 15px;
+  color: #625b55;
+  font-size: 11px;
+}
+
+.arrow {
+  font: 29px var(--font-hand);
+  color: var(--brown);
+  display: inline-block;
+  margin-top: 28px;
+  transition: transform .25s;
+}
+
+.arrow:hover { transform: translateY(4px); }
+
+/* PARTICLE SIGNATURE */
+
+.signature-area {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 0 28px;
+}
+
+.signature-art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.38;
+  max-height: 430px;
+  overflow: hidden;
+  isolation: isolate;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.signature-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: .95;
+  pointer-events: none;
+}
+
+.signature-art.ready .signature-fallback {
+  opacity: .13;
+  mix-blend-mode: multiply;
+}
+
+#particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.signature-note {
+  position: absolute;
+  right: 7%;
+  bottom: 0;
+  font: 500 25px var(--font-hand);
+  color: var(--brown);
+  transform: rotate(-5deg);
+  white-space: nowrap;
+}
+
+.signature-hint {
+  position: absolute;
+  top: 0;
+  right: 2%;
+  font: 500 20px var(--font-hand);
+  color: #9b8d80;
+  transform: rotate(5deg);
+}
+
+/* EXISTING PROJECT STYLES */
+
+.index {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f5f1edf2;
+  border-block: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+
+.index .wrap {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.index a {
+  font-size: 12px;
+  color: #746d65;
+}
+
+.index a.active {
+  color: #6c5b50;
+  font-weight: 700;
+}
+
+.project {
+  padding: 85px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 70px;
+}
+
+.project.alt { background: #faf8f4; }
+
+.project-head {
+  display: grid;
+  grid-template-columns: 1fr 2.1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.project-number {
+  font: italic 23px var(--font-display);
+  color: #aa9785;
+}
+
+.project h2 {
+  font: normal var(--type-section)/1.13 var(--font-display);
+  letter-spacing: -.035em;
+  margin: 15px 0 22px;
+}
+
+.meta {
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: #80786f;
+  margin-bottom: 22px;
+}
+
+.lead {
+  font: var(--type-lead)/1.7 var(--font-display);
+  color: #4b443f;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 35px 0;
+}
+
+.panel {
+  background: var(--paper);
+  border: 1px solid #e5ded6;
+  padding: 28px;
+  border-radius: 3px;
+}
+
+.panel h3 {
+  font: normal 26px var(--font-display);
+  margin: 0 0 16px;
+}
+
+.panel p, .panel li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #645e57;
+}
+
+.panel ul { padding-left: 20px; }
+
+.label {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: .14em;
+  color: #937d6c;
+  text-transform: uppercase;
+}
+
+.viz {
+  margin: 30px 0;
+  background: #fffdfa;
+  border: 1px solid #e4ddd5;
+  padding: 30px;
+}
+
+.viz h3 {
+  font: normal var(--type-subsection) var(--font-display);
+  margin: 0 0 12px;
+}
+
+.note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #857c73;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.control {
+  border: 1px solid #d5c8bb;
+  background: transparent;
+  border-radius: 24px;
+  padding: 9px 15px;
+  font-size: 12px;
+}
+
+.control.active, .control:hover {
+  background: #e9e0d6;
+}
+
+.chart {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  display: block;
+}
+
+.bars {
+  display: grid;
+  gap: 17px;
+  margin-top: 25px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: minmax(110px,1.2fr) 3fr 50px;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+}
+
+.bar-track {
+  height: 22px;
+  background: #eeeae4;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #b7a28e;
+  transition: width .55s ease;
+}
+
+.bar-row:nth-child(even) .bar-fill {
+  background: #c7b9a4;
+}
+
+.workflow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 28px 0;
+}
+
+.step {
+  background: #eee8e0;
+  border: 1px solid #d9cfc3;
+  padding: 16px 14px;
+  font-size: 12px;
+  flex: 1 1 130px;
+  text-align: center;
+}
+
+.step-arrow { color: #927d6c; }
+
+.network {
+  width: 100%;
+  height: 250px;
+}
+
+.network line {
+  stroke: #d0c2b4;
+  stroke-width: 2;
+}
+
+.network circle {
+  fill: #a99583;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.network text {
+  font: 12px Arial;
+  fill: #5b6257;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.metric-value {
+  font: 44px var(--font-display);
+  margin: 12px 0;
+}
+
+.metric-box {
+  padding: 20px;
+  background: #eee8e0;
+}
+
+.metric-box:nth-child(2) {
+  background: #f0ebe4;
+}
+
+.timetable {
+  display: grid;
+  grid-template-columns: 90px repeat(4,1fr);
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.cell {
+  min-height: 55px;
+  background: #eae1d7;
+  padding: 12px 7px;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid #d9cfc3;
+}
+
+.cell.head {
+  background: #ded8d0;
+  font-weight: bold;
+}
+
+.cell.empty { background: #f8f6f2; }
+
+.posters {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.poster {
+  display: block;
+  background: white;
+  padding: 12px;
+  box-shadow: 0 8px 25px #251d1714;
+  transition: transform .2s;
+}
+
+.poster:hover { transform: translateY(-7px); }
+
+.poster iframe {
+  width: 100%;
+  height: 210px;
+  border: 1px solid #e5e0d9;
+  pointer-events: none;
+}
+
+.poster h3 {
+  font: normal 20px var(--font-display);
+}
+
+.poster small {
+  font-size: 12px;
+  color: #8c7868;
+}
+
+.gallery { padding: 85px 0; }
+
+.gallery h2 {
+  font: normal var(--type-section) var(--font-display);
+  margin: 15px 0;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 6%;
+  font-size: 12px;
+  color: #777;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: .65s;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+select {
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: white;
+  max-width: 100%;
+}
+
+@media(max-width:850px) {
+  .nav { grid-template-columns: auto 1fr; }
+
+  .navlinks {
+    grid-column: 1/-1;
+    grid-row: 2;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .connect { grid-column: 2; grid-row: 1; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .signature-area {
+    width: min(100%, 520px);
+    margin: auto;
+  }
+
+  .project-head, .columns, .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .posters { grid-template-columns: 1fr 1fr; }
+  .project { padding: 65px 0; }
+}
+
+@media(max-width:550px) {
+  :root {
+    --type-hero: clamp(46px, 10vw, 58px);
+    --type-section: 35px;
+  }
+
+  .posters { grid-template-columns: 1fr; }
+  .navlinks a { font-size: 11px; }
+  .viz { padding: 18px; }
+  .bar-row { grid-template-columns: 90px 1fr 42px; }
+  .timetable { grid-template-columns: 60px repeat(4,1fr); }
+  .cell { font-size: 10px; padding: 8px 3px; }
+  .signature-note { font-size: 22px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <a class="logo" href="index.html">NZ</a>
+
+  <nav class="navlinks" aria-label="Main navigation">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <a href="research.html" class="active" aria-current="page">RESEARCH</a>
+    <a href="index.html#life">LIFE</a>
+  </nav>
+
+  <a class="connect" href="mailto:Nicholezheng123@gmail.com">
+    Let's Connect ↗
+  </a>
+</header>
+
+<main>
+
+<!-- RESEARCH HERO -->
+<section class="hero wrap">
+  <div class="hero-copy">
+    <div class="eyebrow">RESEARCH &amp; EXPLORATION</div>
+
+    <h1>Curiosity,<br>backed by data.</h1>
+
+    <p>
+      Exploring the intersection of data, technology,
+      and real-world problem solving.
+    </p>
+
+    <div class="categories">
+      <span>Scientific Research &amp; AI</span>
+      <span>Optimization &amp; Decision-Making</span>
+      <span>Sustainable Computing</span>
+    </div>
+
+    <a href="#scientific" class="arrow">
+      explore below ↓
+    </a>
+  </div>
+
+  <div class="signature-area">
+    <span class="signature-hint">try moving the dots ♡</span>
+
+    <div class="signature-art" id="signature-art"
+         aria-label="Interactive particle artwork based on Nichole's original handwritten NZ logo">
+      <img
+        class="signature-fallback"
+        id="signature-source"
+        src="assets/nz-logo.png"
+        alt="Original handwritten NZ signature with brown details and pink blush"
+      >
+      <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    </div>
+
+    <span class="signature-note">made of little connections ♡</span>
+  </div>
+</section>
+
+<!-- RESEARCH INDEX -->
+<nav class="index" aria-label="Research project index">
+  <div class="wrap">
+    <a href="#scientific">01 — Scientific Collaboration</a>
+    <a href="#scheduling">02 — Exam Scheduling</a>
+    <a href="#serverless">03 — Sustainable Computing</a>
+  </div>
+</nav>
+
+<!-- PROJECT 1 -->
+<section class="project" id="scientific">
+<div class="wrap">
+
+  <div class="project-head reveal">
+    <div>
+      <div class="project-number">01 / CURRENT RESEARCH</div>
+      <span class="tag">Ongoing</span>
+    </div>
+
+    <div>
+      <div class="eyebrow">SCIENTIFIC TEAM COMPOSITION &amp; AI</div>
+      <h2>Understanding Scientific Collaboration in the Age of AI</h2>
+      <div class="meta">
+        CORNELL UNIVERSITY · PROFESSOR YIAN YIN · ONGOING
+      </div>
+      <p class="lead">
+        I'm studying how scientific team composition, institutional affiliations,
+        and AI-tool adoption relate to research outcomes. My current work examines
+        ICLR submissions, matching university and company affiliations to explore
+        patterns in ratings and acceptance.
+      </p>
+    </div>
+  </div>
+
+  <div class="columns reveal">
+    <div class="panel">
+      <div class="label">Questions I'm exploring</div>
+      <h3>Who collaborates, and what changes?</h3>
+      <p>
+        How do institutional affiliations, team composition and research-tool
+        use relate to evaluation outcomes? I treat these as associations,
+        not evidence of causation.
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="label">My contribution</div>
+      <h3>From messy names to useful analysis</h3>
+      <ul>
+        <li>Clean and validate publication datasets</li>
+        <li>Match inconsistent affiliations across sources</li>
+        <li>Classify institutions into tiers using Python</li>
+        <li>Analyze ratings, acceptance and missing-data patterns</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="viz reveal">
+    <div class="label">INTERACTIVE ANALYSIS GALLERY</div>
+    <h3>Acceptance rates by institution tier</h3>
+    <p class="note">
+      Data not yet supplied. The chart is intentionally empty rather than
+      showing invented acceptance rates. Add verified values to researchData
+      in the script.
+    </p>
+
+    <div class="controls">
+      <button class="control active" data-affiliation="university">University</button>
+      <button class="control" data-affiliation="company">Company</button>
+    </div>
+
+    <div id="acceptanceChart" class="bars"
+         role="img" aria-label="Acceptance rate chart awaiting verified research data">
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="viz reveal" style="margin:0">
+      <h3>Average paper rating by tier</h3>
+      <p class="note">
+        Verified means and sample sizes can be added to the data object.
+        No preliminary values are represented as findings.
+      </p>
+      <div id="ratingChart" class="bars"></div>
+    </div>
+
+    <div class="viz reveal" style="margin:0">
+      <h3>Collaboration network</h3>
+      <p class="note">
+        Conceptual illustration only — nodes and links are not empirical
+        collaboration data.
+      </p>
+
+      <svg class="network" viewBox="0 0 440 250"
+           role="img" aria-label="Conceptual network of connected research institutions">
+        <g>
+          <line x1="90" y1="120" x2="220" y2="45"/>
+          <line x1="90" y1="120" x2="220" y2="205"/>
+          <line x1="220" y1="45" x2="340" y2="105"/>
+          <line x1="220" y1="205" x2="340" y2="105"/>
+          <line x1="220" y1="45" x2="220" y2="205"/>
+        </g>
+        <g>
+          <circle cx="90" cy="120" r="22"/>
+          <circle cx="220" cy="45" r="19"/>
+          <circle cx="220" cy="205" r="19"/>
+          <circle cx="340" cy="105" r="23"/>
+        </g>
+        <g>
+          <text x="90" y="160" text-anchor="middle">Institution A</text>
+          <text x="220" y="18" text-anchor="middle">B</text>
+          <text x="220" y="240" text-anchor="middle">C</text>
+          <text x="340" y="147" text-anchor="middle">D</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="viz reveal">
+    <h3>My analysis workflow</h3>
+    <div class="workflow">
+      <div class="step">Publication data</div>
+      <span class="step-arrow">→</span>
+      <div class="step">Data cleaning</div>
+      <span class="step-arrow">→</span>
+      <div class="step">Affiliation matching</div>
+      <span class="step-arrow">→</span>
+      <div class="step">Institution classification</div>
+      <span class="step-arrow">→</span>
+      <div class="step">Statistical analysis</div>
+      <span class="step-arrow">→</span>
+      <div class="step">Research insights</div>
+    </div>
+    <p class="note">
+      Research is ongoing; these are methods and questions,
+      not published conclusions.
+    </p>
+  </div>
+
+</div>
+</section>
+
+<!-- PROJECT 2 -->
+<section class="project alt" id="scheduling">
+<div class="wrap">
+
+  <div class="project-head reveal">
+    <div>
+      <div class="project-number">02 / OPTIMIZATION</div>
+    </div>
+
+    <div>
+      <div class="eyebrow">UNIVERSITY EXAM SCHEDULING</div>
+      <h2>Making Exam Scheduling Smarter</h2>
+      <div class="meta">
+        CORNELL UNIVERSITY · PROFESSOR DAVID SHMOYS
+      </div>
+      <p class="lead">
+        Exam scheduling affects students' workloads and well-being.
+        I explored integer programming models that balance instructor
+        preferences, exam conflicts and high-stress patterns while
+        helping teams visualize alternative schedules.
+      </p>
+    </div>
+  </div>
+
+  <div class="columns reveal">
+    <div class="panel">
+      <div class="label">PART A · PRELIMINARY EXAMS</div>
+      <h3>Improving prelim schedules</h3>
+      <p>
+        We explored integer programming, parameter tuning, makeup options
+        and exam-spacing visualizations. In the poster's specific experiments,
+        removing a slot before spring break increased conflicts more than
+        fourfold; a greedy splitting approach reduced conflicts to approximately
+        half the original schedule.
+      </p>
+      <p class="note">
+        These results describe particular tested schedules,
+        not a general guarantee.
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="label">PART B · FINAL EXAMS</div>
+      <h3>Intelligent block assignment</h3>
+      <p>
+        We compared three versus four daily exam slots using integer
+        programming, weighted co-enrollment conflict penalties,
+        and student workload metrics. The chart below shows the
+        reported experimental comparison.
+      </p>
+    </div>
+  </div>
+
+  <div class="viz reveal">
+    <h3>Three slots vs. four slots per day</h3>
+    <label class="label" for="metricSelect">
+      SELECT A SCHEDULING METRIC
+    </label>
+    <div class="controls">
+      <select id="metricSelect"></select>
+    </div>
+    <div id="metricComparison" class="comparison-grid"
+         aria-live="polite"></div>
+    <p class="note">
+      Counts reported in the Final Scheduling CURB poster.
+      Both compared configurations had zero exam conflicts.
+      Lower counts indicate fewer instances of the selected
+      high-stress pattern.
+    </p>
+  </div>
+
+  <div class="viz reveal">
+    <h3>What happens if the last block stays empty?</h3>
+    <div class="comparison-grid">
+      <div class="metric-box">
+        <div class="label">4 slots · regular</div>
+        <div class="metric-value">6</div>
+        <div>Quadruple-exam patterns</div>
+        <p class="note">Other back-to-backs: 2,149</p>
+      </div>
+
+      <div class="metric-box">
+        <div class="label">4 slots · final block empty</div>
+        <div class="metric-value">0</div>
+        <div>Quadruple-exam patterns</div>
+        <p class="note">Other back-to-backs: 2,599</p>
+      </div>
+    </div>
+    <p class="note">
+      The poster reports that eliminating the last daily block removed
+      quadruple-exam patterns and evening/morning back-to-backs,
+      but increased other back-to-back cases. Trade-offs remain.
+    </p>
+  </div>
+
+  <div class="viz reveal">
+    <h3>Explore a sample block assignment</h3>
+    <p class="note">
+      Illustrative timetable only, not an actual Cornell exam schedule.
+      Click a filled slot to move the sample exam into another available slot.
+    </p>
+    <div id="timetable" class="timetable"
+         aria-label="Interactive sample exam timetable"></div>
+    <p id="timetableMessage" class="note" aria-live="polite">
+      Choose an exam, then choose an empty slot.
+    </p>
+  </div>
+
+</div>
+</section>
+
+<!-- PROJECT 3 -->
+<section class="project" id="serverless">
+<div class="wrap">
+
+  <div class="project-head reveal">
+    <div>
+      <div class="project-number">03 / COMPUTING</div>
+    </div>
+
+    <div>
+      <div class="eyebrow">GREEN SERVERLESS COMPUTING</div>
+      <h2>Toward More Sustainable AI Computing</h2>
+      <div class="meta">VINUNIVERSITY · HANOI, VIETNAM</div>
+      <p class="lead">
+        I explored how serverless architectures could make AI training
+        more resource-efficient through dynamic resource allocation,
+        and investigated the trade-offs among performance, scalability
+        and infrastructure overhead.
+      </p>
+    </div>
+  </div>
+
+  <div class="columns reveal">
+    <div class="panel">
+      <h3>Traditional infrastructure</h3>
+      <div class="workflow">
+        <div class="step">AI workload</div>
+        <span>→</span>
+        <div class="step">Provisioned servers</div>
+        <span>→</span>
+        <div class="step">Training</div>
+      </div>
+      <p>
+        Dedicated capacity may remain provisioned even when workload
+        demand varies.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3>Serverless approach</h3>
+      <div class="workflow">
+        <div class="step">AI workload</div>
+        <span>→</span>
+        <div class="step">On-demand resources</div>
+        <span>→</span>
+        <div class="step">Training</div>
+      </div>
+      <p>
+        Resources can be allocated in response to demand,
+        with overhead and performance trade-offs to evaluate.
+      </p>
+    </div>
+  </div>
+
+  <div class="viz reveal">
+    <h3>AI training research workflow</h3>
+    <div class="workflow">
+      <div class="step">Input data</div>
+      <span>→</span>
+      <div class="step">Preprocessing</div>
+      <span>→</span>
+      <div class="step">Model training</div>
+      <span>→</span>
+      <div class="step">Compute resource monitoring</div>
+      <span>→</span>
+      <div class="step">Performance evaluation</div>
+    </div>
+    <p class="note">
+      Conceptual architecture overview. Numerical performance or
+      energy savings are intentionally omitted because verified
+      measurements were not available for this build.
+    </p>
+  </div>
+
+</div>
+</section>
+
+<!-- POSTER GALLERY -->
+<section class="gallery wrap" id="posters">
+  <div class="eyebrow">RESEARCH ARTIFACTS</div>
+  <h2>From Research to Results</h2>
+  <p class="lead">
+    A closer look at the questions, experiments,
+    and ideas behind the work.
+  </p>
+
+  <div class="posters">
+    <a class="poster" href="assets/PrelimPosterSP25.pdf"
+       target="_blank" rel="noopener">
+      <iframe title="Preliminary exam scheduling poster preview"
+              loading="lazy"
+              src="assets/PrelimPosterSP25.pdf#toolbar=0"></iframe>
+      <h3>Preliminary Exam Scheduling</h3>
+      <small>View Poster ↗</small>
+    </a>
+
+    <a class="poster" href="assets/Final Scheduling CURB Poster.pdf"
+       target="_blank" rel="noopener">
+      <iframe title="Final exam scheduling poster preview"
+              loading="lazy"
+              src="assets/Final Scheduling CURB Poster.pdf#toolbar=0"></iframe>
+      <h3>Final Exam Scheduling</h3>
+      <small>View Poster ↗</small>
+    </a>
+
+    <a class="poster" href="assets/Green Serverless Poster.pdf"
+       target="_blank" rel="noopener">
+      <iframe title="Green serverless poster preview"
+              loading="lazy"
+              src="assets/Green Serverless Poster.pdf#toolbar=0"></iframe>
+      <h3>Green Serverless Computing</h3>
+      <small>View Poster ↗</small>
+    </a>
+  </div>
+
+  <p class="note">
+    Poster previews display the actual PDFs when the three named files
+    are placed in your website's assets folder.
+  </p>
+</section>
+
+</main>
+
+<footer class="footer">
+  © Nichole Zheng · Research, curiosity &amp; discovery ♡
+</footer>
+
 <script>
-// Populate with VERIFIED values only. Example format: [{tier:'1',value:0.42,n:180}].
-const researchData={acceptance:{university:[],company:[]},ratings:{university:[],company:[]}};
-const schedulingMetrics=[{name:'Conflicts',three:0,four:0},{name:'Quadruple-exam patterns',three:15,four:6},{name:'Triple exams in 24h (no gaps)',three:220,four:125},{name:'Three exams in four slots',three:472,four:125},{name:'Evening/morning back-to-backs',three:1095,four:322}];
-function renderBars(target,rows,suffix){const root=document.getElementById(target);root.replaceChildren();if(!rows.length){const p=document.createElement('p');p.className='note';p.textContent='Awaiting verified research data — no numerical findings displayed.';root.append(p);return;}const max=Math.max(...rows.map(r=>r.value),.001);rows.forEach(r=>{const row=document.createElement('div');row.className='bar-row';const label=document.createElement('span');label.textContent='Tier '+r.tier;const track=document.createElement('div');track.className='bar-track';const fill=document.createElement('div');fill.className='bar-fill';fill.style.width=(100*r.value/max)+'%';fill.title=`Tier ${r.tier}: ${r.value}${suffix}; n=${r.n??'not supplied'}`;track.append(fill);const value=document.createElement('span');value.textContent=r.value+suffix;row.append(label,track,value);root.append(row);});}
-let affiliation='university';function renderResearch(){renderBars('acceptanceChart',researchData.acceptance[affiliation],'%');renderBars('ratingChart',researchData.ratings[affiliation],'');}document.querySelectorAll('[data-affiliation]').forEach(b=>b.addEventListener('click',()=>{affiliation=b.dataset.affiliation;document.querySelectorAll('[data-affiliation]').forEach(x=>x.classList.toggle('active',x===b));renderResearch();}));renderResearch();
-const metricSelect=document.getElementById('metricSelect');schedulingMetrics.forEach((m,i)=>metricSelect.add(new Option(m.name,i)));function updateMetric(){const m=schedulingMetrics[+metricSelect.value];const root=document.getElementById('metricComparison');root.replaceChildren();[['3 slots per day',m.three],['4 slots per day',m.four]].forEach(([title,val])=>{const el=document.createElement('div');el.className='metric-box';const label=document.createElement('div');label.className='label';label.textContent=title;const value=document.createElement('div');value.className='metric-value';value.textContent=val.toLocaleString();const bar=document.createElement('div');bar.className='bar-track';const fill=document.createElement('div');fill.className='bar-fill';fill.style.width=(Math.max(m.three,m.four)?100*val/Math.max(m.three,m.four):0)+'%';bar.append(fill);el.append(label,value,bar);root.append(el);});}metricSelect.addEventListener('change',updateMetric);updateMetric();
-const slots=[['Mon','Exam A','','Exam B',''],['Tue','','Exam C','',''],['Wed','Exam D','','','']];let selected=null;function drawTimetable(){const root=document.getElementById('timetable');root.replaceChildren();['Day','Block 1','Block 2','Block 3','Block 4'].forEach(t=>{const el=document.createElement('div');el.className='cell head';el.textContent=t;root.append(el);});slots.forEach((row,r)=>row.forEach((value,c)=>{const cell=document.createElement(c===0?'div':'button');cell.className='cell'+(!value?' empty':'');cell.textContent=value||'—';if(c>0){cell.type='button';cell.setAttribute('aria-label',`${row[0]} block ${c}: ${value||'empty'}`);cell.addEventListener('click',()=>{if(!selected){if(value){selected=[r,c];document.getElementById('timetableMessage').textContent=`Selected ${value}. Choose an empty block.`;}}else{if(!value){slots[r][c]=slots[selected[0]][selected[1]];slots[selected[0]][selected[1]]='';document.getElementById('timetableMessage').textContent='Exam moved. This illustrates reassignment, not optimized conflict scores.';}selected=null;}drawTimetable();});}root.append(cell);})));}drawTimetable();
-const reveal=document.querySelectorAll('.reveal');if('IntersectionObserver'in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}}),{threshold:.08});reveal.forEach(e=>io.observe(e));}else reveal.forEach(e=>e.classList.add('show'));
-const links=[...document.querySelectorAll('.index a')];if('IntersectionObserver'in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id));}),{rootMargin:'-20% 0px -65% 0px'});document.querySelectorAll('.project').forEach(p=>io.observe(p));}
-</script></body></html>
+"use strict";
+
+/* EXISTING RESEARCH DATA AND INTERACTIONS */
+
+const researchData = {
+  acceptance: { university: [], company: [] },
+  ratings: { university: [], company: [] }
+};
+
+const schedulingMetrics = [
+  {name:"Conflicts",three:0,four:0},
+  {name:"Quadruple-exam patterns",three:15,four:6},
+  {name:"Triple exams in 24h (no gaps)",three:220,four:125},
+  {name:"Three exams in four slots",three:472,four:125},
+  {name:"Evening/morning back-to-backs",three:1095,four:322}
+];
+
+function renderBars(target, rows, suffix) {
+  const root = document.getElementById(target);
+  root.replaceChildren();
+
+  if (!rows.length) {
+    const p = document.createElement("p");
+    p.className = "note";
+    p.textContent =
+      "Awaiting verified research data — no numerical findings displayed.";
+    root.append(p);
+    return;
+  }
+
+  const max = Math.max(...rows.map(r => r.value), .001);
+
+  rows.forEach(r => {
+    const row = document.createElement("div");
+    row.className = "bar-row";
+
+    const label = document.createElement("span");
+    label.textContent = "Tier " + r.tier;
+
+    const track = document.createElement("div");
+    track.className = "bar-track";
+
+    const fill = document.createElement("div");
+    fill.className = "bar-fill";
+    fill.style.width = (100 * r.value / max) + "%";
+    fill.title = `Tier ${r.tier}: ${r.value}${suffix}; n=${r.n ?? "not supplied"}`;
+
+    track.append(fill);
+
+    const value = document.createElement("span");
+    value.textContent = r.value + suffix;
+
+    row.append(label, track, value);
+    root.append(row);
+  });
+}
+
+let affiliation = "university";
+
+function renderResearch() {
+  renderBars("acceptanceChart", researchData.acceptance[affiliation], "%");
+  renderBars("ratingChart", researchData.ratings[affiliation], "");
+}
+
+document.querySelectorAll("[data-affiliation]").forEach(button => {
+  button.addEventListener("click", () => {
+    affiliation = button.dataset.affiliation;
+
+    document.querySelectorAll("[data-affiliation]").forEach(other => {
+      other.classList.toggle("active", other === button);
+    });
+
+    renderResearch();
+  });
+});
+
+renderResearch();
+
+const metricSelect = document.getElementById("metricSelect");
+
+schedulingMetrics.forEach((metric, index) => {
+  metricSelect.add(new Option(metric.name, index));
+});
+
+function updateMetric() {
+  const metric = schedulingMetrics[+metricSelect.value];
+  const root = document.getElementById("metricComparison");
+  root.replaceChildren();
+
+  [
+    ["3 slots per day", metric.three],
+    ["4 slots per day", metric.four]
+  ].forEach(([title, val]) => {
+    const el = document.createElement("div");
+    el.className = "metric-box";
+
+    const label = document.createElement("div");
+    label.className = "label";
+    label.textContent = title;
+
+    const value = document.createElement("div");
+    value.className = "metric-value";
+    value.textContent = val.toLocaleString();
+
+    const bar = document.createElement("div");
+    bar.className = "bar-track";
+
+    const fill = document.createElement("div");
+    fill.className = "bar-fill";
+
+    const max = Math.max(metric.three, metric.four);
+    fill.style.width = (max ? 100 * val / max : 0) + "%";
+
+    bar.append(fill);
+    el.append(label, value, bar);
+    root.append(el);
+  });
+}
+
+metricSelect.addEventListener("change", updateMetric);
+updateMetric();
+
+const slots = [
+  ["Mon", "Exam A", "", "Exam B", ""],
+  ["Tue", "", "Exam C", "", ""],
+  ["Wed", "Exam D", "", "", ""]
+];
+
+let selected = null;
+
+function drawTimetable() {
+  const root = document.getElementById("timetable");
+  root.replaceChildren();
+
+  ["Day", "Block 1", "Block 2", "Block 3", "Block 4"].forEach(text => {
+    const el = document.createElement("div");
+    el.className = "cell head";
+    el.textContent = text;
+    root.append(el);
+  });
+
+  slots.forEach((row, r) => row.forEach((value, c) => {
+    const cell = document.createElement(c === 0 ? "div" : "button");
+    cell.className = "cell" + (!value ? " empty" : "");
+    cell.textContent = value || "—";
+
+    if (c > 0) {
+      cell.type = "button";
+      cell.setAttribute(
+        "aria-label",
+        `${row[0]} block ${c}: ${value || "empty"}`
+      );
+
+      cell.addEventListener("click", () => {
+        if (!selected) {
+          if (value) {
+            selected = [r, c];
+            document.getElementById("timetableMessage").textContent =
+              `Selected ${value}. Choose an empty block.`;
+          }
+        } else {
+          if (!value) {
+            slots[r][c] = slots[selected[0]][selected[1]];
+            slots[selected[0]][selected[1]] = "";
+
+            document.getElementById("timetableMessage").textContent =
+              "Exam moved. This illustrates reassignment, not optimized conflict scores.";
+          }
+          selected = null;
+        }
+
+        drawTimetable();
+      });
+    }
+
+    root.append(cell);
+  }));
+}
+
+drawTimetable();
+
+const reveals = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.08});
+
+  reveals.forEach(el => observer.observe(el));
+} else {
+  reveals.forEach(el => el.classList.add("show"));
+}
+
+const indexLinks = [...document.querySelectorAll(".index a")];
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        indexLinks.forEach(link => {
+          link.classList.toggle(
+            "active",
+            link.hash === "#" + entry.target.id
+          );
+        });
+      }
+    });
+  }, {rootMargin:"-20% 0px -65% 0px"});
+
+  document.querySelectorAll(".project").forEach(p => observer.observe(p));
+}
+
+/* ORIGINAL NZ LOGO PARTICLE SYSTEM */
+
+(() => {
+  const container = document.getElementById("signature-art");
+  const source = document.getElementById("signature-source");
+  const canvas = document.getElementById("particle-canvas");
+
+  if (!container || !source || !canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  const coarsePointer = window.matchMedia(
+    "(pointer: coarse)"
+  ).matches;
+
+  const particles = [];
+  const pointer = {
+    x: -1000,
+    y: -1000,
+    active: false,
+    down: false,
+    dragged: null
+  };
+
+  let width = 0;
+  let height = 0;
+  let dpr = 1;
+  let running = false;
+  let visible = true;
+  let lastTime = 0;
+  let assembled = false;
+  let frameId = 0;
+
+  const CONFIG = {
+    spacing: 3.8,
+    maxParticles: 6500,
+    spring: .032,
+    damping: .82,
+    repulsionRadius: 64,
+    repulsionStrength: 2.6,
+    dragRadius: 38,
+    dragStrength: .16,
+    lineDistance: 11,
+    particleRadius: .95
+  };
+
+  // Deterministic sampling keeps the logo stable on reload.
+  function noise(n) {
+    const x = Math.sin(n * 127.1 + 78.233) * 43758.5453;
+    return x - Math.floor(x);
+  }
+
+  function resizeCanvas() {
+    const rect = container.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function imageBounds(imgWidth, imgHeight) {
+    const scale = Math.min(width / imgWidth, height / imgHeight);
+
+    return {
+      x: (width - imgWidth * scale) / 2,
+      y: (height - imgHeight * scale) / 2,
+      width: imgWidth * scale,
+      height: imgHeight * scale,
+      scale
+    };
+  }
+
+  function createParticles() {
+    if (!source.complete || !source.naturalWidth) return;
+
+    resizeCanvas();
+
+    const image = document.createElement("canvas");
+    const imageCtx = image.getContext("2d", {willReadFrequently:true});
+
+    if (!imageCtx) return;
+
+    const sourceWidth = source.naturalWidth;
+    const sourceHeight = source.naturalHeight;
+
+    // Sample at a moderate resolution for fast startup.
+    const sampleWidth = 800;
+    const sampleHeight = Math.round(
+      sampleWidth * sourceHeight / sourceWidth
+    );
+
+    image.width = sampleWidth;
+    image.height = sampleHeight;
+
+    imageCtx.drawImage(source, 0, 0, sampleWidth, sampleHeight);
+
+    let pixels;
+
+    try {
+      pixels = imageCtx.getImageData(
+        0, 0, sampleWidth, sampleHeight
+      ).data;
+    } catch (error) {
+      // Original image remains visible.
+      return;
+    }
+
+    particles.length = 0;
+
+    const bounds = imageBounds(sourceWidth, sourceHeight);
+    const scaleX = bounds.width / sampleWidth;
+    const scaleY = bounds.height / sampleHeight;
+
+    // Sample the actual colored logo pixels.
+    // Near-white background pixels are excluded.
+    const step = Math.max(
+      2,
+      Math.round(CONFIG.spacing / Math.max(scaleX, .1))
+    );
+
+    let index = 0;
+
+    for (let y = 0; y < sampleHeight; y += step) {
+      for (let x = 0; x < sampleWidth; x += step) {
+        const i = (y * sampleWidth + x) * 4;
+
+        const r = pixels[i];
+        const g = pixels[i + 1];
+        const b = pixels[i + 2];
+        const alpha = pixels[i + 3];
+
+        if (alpha < 60) continue;
+
+        const min = Math.min(r, g, b);
+        const max = Math.max(r, g, b);
+        const darkness = 255 - (r + g + b) / 3;
+        const saturation = max - min;
+
+        // Retain black strokes, muted brown and pink.
+        // Reject white and near-white background.
+        if (darkness < 28 && saturation < 22) continue;
+
+        const tx = bounds.x + x * scaleX;
+        const ty = bounds.y + y * scaleY;
+
+        const offsetX = (noise(index * 3) - .5) * 35;
+        const offsetY = (noise(index * 3 + 1) - .5) * 35;
+
+        particles.push({
+          x: reducedMotion ? tx : tx + offsetX,
+          y: reducedMotion ? ty : ty + offsetY,
+          tx,
+          ty,
+          vx: 0,
+          vy: 0,
+          radius: noise(index + 17) > .95 ? 1.65 : .95,
+          color: `rgb(${r},${g},${b})`
+        });
+
+        index++;
+      }
+    }
+
+    // Keep performance bounded without changing the logo geometry.
+    if (particles.length > CONFIG.maxParticles) {
+      const stride = Math.ceil(
+        particles.length / CONFIG.maxParticles
+      );
+
+      const filtered = particles.filter((_, i) => i % stride === 0);
+      particles.length = 0;
+      particles.push(...filtered);
+    }
+
+    if (!particles.length) return;
+
+    container.classList.add("ready");
+    assembled = reducedMotion;
+
+    if (reducedMotion) {
+      draw();
+    } else {
+      start();
+    }
+  }
+
+  function update() {
+    for (const p of particles) {
+      let fx = (p.tx - p.x) * CONFIG.spring;
+      let fy = (p.ty - p.y) * CONFIG.spring;
+
+      if (pointer.active) {
+        const dx = p.x - pointer.x;
+        const dy = p.y - pointer.y;
+        const distance = Math.sqrt(dx * dx + dy * dy) || .001;
+
+        if (pointer.down && pointer.dragged) {
+          const ddx = p.tx - pointer.dragged.tx;
+          const ddy = p.ty - pointer.dragged.ty;
+          const targetDistance = Math.hypot(ddx, ddy);
+
+          if (targetDistance < CONFIG.dragRadius) {
+            const influence =
+              1 - targetDistance / CONFIG.dragRadius;
+
+            const targetX = pointer.x + ddx;
+            const targetY = pointer.y + ddy;
+
+            fx += (targetX - p.x) *
+              CONFIG.dragStrength * influence;
+
+            fy += (targetY - p.y) *
+              CONFIG.dragStrength * influence;
+          }
+        } else if (distance < CONFIG.repulsionRadius) {
+          const influence =
+            1 - distance / CONFIG.repulsionRadius;
+
+          const force = influence * influence *
+            CONFIG.repulsionStrength;
+
+          fx += dx / distance * force;
+          fy += dy / distance * force;
+        }
+      }
+
+      p.vx = (p.vx + fx) * CONFIG.damping;
+      p.vy = (p.vy + fy) * CONFIG.damping;
+
+      p.x += p.vx;
+      p.y += p.vy;
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Sparse local links, only emphasized near interaction.
+    if (pointer.active && !reducedMotion) {
+      const near = particles.filter(p =>
+        Math.hypot(p.x - pointer.x, p.y - pointer.y) < 95
+      );
+
+      ctx.lineWidth = .45;
+      ctx.strokeStyle = "rgba(126,108,94,.19)";
+
+      for (let i = 0; i < near.length; i++) {
+        let links = 0;
+
+        for (let j = i + 1; j < near.length; j++) {
+          const a = near[i];
+          const b = near[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+
+          if (dx * dx + dy * dy <
+              CONFIG.lineDistance * CONFIG.lineDistance) {
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+
+            links++;
+            if (links >= 3) break;
+          }
+        }
+      }
+    }
+
+    for (const p of particles) {
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function animate(time) {
+    if (!running) return;
+
+    frameId = requestAnimationFrame(animate);
+
+    // Limit work to approximately 60 FPS.
+    if (time - lastTime < 15) return;
+    lastTime = time;
+
+    update();
+    draw();
+
+    if (!assembled) {
+      let displacement = 0;
+
+      for (const p of particles) {
+        displacement += Math.abs(p.x - p.tx);
+        displacement += Math.abs(p.y - p.ty);
+      }
+
+      if (displacement / particles.length < .25) {
+        assembled = true;
+      }
+    }
+
+    // Stop drawing once the image is settled and idle.
+    if (assembled && !pointer.active) {
+      let motion = 0;
+
+      for (const p of particles) {
+        motion += Math.abs(p.vx) + Math.abs(p.vy);
+        motion += Math.abs(p.x - p.tx) * .05;
+        motion += Math.abs(p.y - p.ty) * .05;
+      }
+
+      if (motion / particles.length < .025) {
+        stop();
+      }
+    }
+  }
+
+  function start() {
+    if (running || reducedMotion || !visible) return;
+    running = true;
+    lastTime = 0;
+    frameId = requestAnimationFrame(animate);
+  }
+
+  function stop() {
+    running = false;
+    cancelAnimationFrame(frameId);
+  }
+
+  function pointerPosition(event) {
+    const rect = container.getBoundingClientRect();
+
+    pointer.x = event.clientX - rect.left;
+    pointer.y = event.clientY - rect.top;
+    pointer.active = true;
+  }
+
+  container.addEventListener("pointermove", event => {
+    pointerPosition(event);
+    start();
+  });
+
+  container.addEventListener("pointerdown", event => {
+    if (reducedMotion) return;
+
+    pointerPosition(event);
+    pointer.down = true;
+
+    let closest = null;
+    let best = 28 * 28;
+
+    for (const p of particles) {
+      const dx = p.x - pointer.x;
+      const dy = p.y - pointer.y;
+      const d2 = dx * dx + dy * dy;
+
+      if (d2 < best) {
+        best = d2;
+        closest = p;
+      }
+    }
+
+    pointer.dragged = closest;
+
+    if (closest) {
+      container.setPointerCapture(event.pointerId);
+    }
+
+    start();
+  });
+
+  function release(event) {
+    pointer.down = false;
+    pointer.dragged = null;
+
+    if (event && container.hasPointerCapture(event.pointerId)) {
+      container.releasePointerCapture(event.pointerId);
+    }
+
+    if (coarsePointer) {
+      pointer.active = false;
+    }
+
+    start();
+  }
+
+  container.addEventListener("pointerup", release);
+  container.addEventListener("pointercancel", release);
+
+  container.addEventListener("pointerleave", () => {
+    if (!pointer.down) {
+      pointer.active = false;
+      start();
+    }
+  });
+
+  // Pause rendering when the artwork leaves the viewport.
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+
+      if (!visible) {
+        stop();
+      } else if (!reducedMotion && !assembled) {
+        start();
+      } else if (visible) {
+        draw();
+      }
+    }, {threshold:.05});
+
+    observer.observe(container);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stop();
+    } else if (visible && !assembled) {
+      start();
+    } else if (visible) {
+      draw();
+    }
+  });
+
+  // Recalculate particle positions when the hero changes size.
+  let resizeTimer;
+
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(() => {
+      stop();
+      container.classList.remove("ready");
+      createParticles();
+    }, 180);
+  });
+
+  if (source.complete && source.naturalWidth) {
+    createParticles();
+  } else {
+    source.addEventListener("load", createParticles, {once:true});
+  }
+
+})();
+</script>
+
+</body>
+</html>
