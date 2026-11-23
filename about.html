@@ -4,14 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f5f1ed">
 <title>About Me — Nichole Zheng</title>
+<meta name="theme-color" content="#f5f1ed">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -19,7 +17,8 @@
   --paper: #faf8f5;
   --ink: #191715;
   --muted: #827b75;
-  --sage: #a8b6a1;
+  --brown: #8c7b6d;
+  --light-brown: #e9e0d6;
   --line: #ddd7cf;
 }
 
@@ -38,7 +37,6 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-/* NAVIGATION */
 .nav {
   max-width: 1650px;
   margin: auto;
@@ -75,7 +73,6 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   height: 2px;
   background: var(--ink);
   transform: scaleX(0);
-  transform-origin: left;
   transition: transform .25s;
 }
 
@@ -86,16 +83,13 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .connect {
   justify-self: end;
-  border-radius: 40px;
   background: var(--ink);
   color: white;
+  border-radius: 40px;
   padding: 15px 25px;
-  font-weight: 700;
   font-size: 13px;
-  transition: transform .2s;
+  font-weight: 700;
 }
-
-.connect:hover { transform: translateY(-3px); }
 
 .eyebrow {
   font-size: 11px;
@@ -104,15 +98,14 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   text-transform: uppercase;
 }
 
-/* ABOUT HERO — CORRECTED SPACING */
 .hero {
   max-width: 1480px;
-  margin: 0 auto;
-  padding: 38px 6% 65px;
-  min-height: 0;
+  margin: auto;
+  min-height: 680px;
+  padding: 48px 6% 68px;
   display: grid;
   grid-template-columns: 1.08fr 1.05fr .8fr;
-  gap: clamp(35px, 4vw, 70px);
+  gap: clamp(36px, 4.5vw, 78px);
   align-items: center;
 }
 
@@ -129,11 +122,10 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 
 .underline path {
-  stroke: #9dad98;
+  fill: none;
+  stroke: #c4b3a3;
   stroke-width: 6;
   stroke-linecap: round;
-  fill: none;
-  opacity: .75;
 }
 
 .intro-quote {
@@ -145,85 +137,71 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .interests-icons {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-  max-width: 440px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 410px;
 }
 
 .interest {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #655e58;
   text-align: center;
-  font-size: 10px;
-  line-height: 1.5;
-  color: #69635d;
 }
 
 .interest svg {
-  width: 29px;
-  height: 29px;
   display: block;
-  margin: 0 auto 11px;
-  stroke: #403d38;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 12px;
   fill: none;
+  stroke: #45403b;
   stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
 
-/* PORTRAIT */
 .portrait-area {
   position: relative;
-  min-width: 0;
-  padding: 24px 0 30px;
+  width: 100%;
+  padding: 12px 0;
 }
 
 .polaroid {
   position: relative;
-  display: block;
-  width: 100%;
-  padding: 13px 13px 44px;
+  padding: 14px 14px 37px;
   background: white;
-  box-shadow: 0 15px 34px #33271c20;
-  border: 0;
+  box-shadow: 0 20px 40px #30271f20;
   transform: rotate(3deg);
+  transition: transform .35s, box-shadow .35s;
   cursor: pointer;
-  transition: transform .3s, box-shadow .3s;
-  outline-offset: 6px;
+  outline-offset: 8px;
 }
 
 .polaroid:hover,
 .polaroid:focus-visible {
-  transform: rotate(0deg) translateY(-7px);
-  box-shadow: 0 23px 43px #33271c2d;
+  transform: rotate(1deg) translateY(-6px);
+  box-shadow: 0 26px 45px #30271f28;
 }
 
-.portrait-area .polaroid {
-  animation: portraitIn 1.05s cubic-bezier(.2,1.3,.35,1) both;
-}
-
-@keyframes portraitIn {
-  from { opacity: 0; transform: translateY(35px) rotate(-4deg) scale(.96); }
-  to { opacity: 1; transform: translateY(0) rotate(3deg) scale(1); }
+.tape {
+  position: absolute;
+  width: 120px;
+  height: 33px;
+  background: #ded1b5b8;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  z-index: 3;
 }
 
 .photo-window {
   position: relative;
-  aspect-ratio: 3/4;
   overflow: hidden;
-  background: #e7e0d7;
+  aspect-ratio: 4 / 5.3;
 }
 
-.photo-window img { object-position: center 40%; }
-
-.tape {
-  position: absolute;
-  width: 104px;
-  height: 30px;
-  background: #dcd0b5a8;
-  left: 50%;
-  top: -13px;
-  transform: translateX(-50%) rotate(-4deg);
-  z-index: 4;
-  pointer-events: none;
+.photo-window img {
+  width: 100%;
+  height: 100%;
 }
 
 .flash {
@@ -232,140 +210,105 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   background: white;
   opacity: 0;
   pointer-events: none;
-  z-index: 3;
 }
 
-.polaroid.snapping .flash { animation: flash .43s ease-out; }
-.polaroid.snapping img { animation: photoPulse .43s ease-out; }
+.polaroid.capturing .flash {
+  animation: shutterFlash .4s ease;
+}
 
-@keyframes flash {
+@keyframes shutterFlash {
   0% { opacity: 0; }
-  12% { opacity: .7; }
-  35%, 100% { opacity: 0; }
-}
-
-@keyframes photoPulse {
-  0%,100% { transform: scale(1); }
-  25% { transform: scale(.985); }
-  65% { transform: scale(1.012); }
+  18% { opacity: .8; }
+  45% { opacity: .2; }
+  100% { opacity: 0; }
 }
 
 .viewfinder {
   position: absolute;
   inset: 15px;
   opacity: 0;
-  transition: opacity .25s;
-  z-index: 2;
   pointer-events: none;
+  transition: opacity .25s;
 }
 
 .polaroid:hover .viewfinder,
-.polaroid:focus-visible .viewfinder { opacity: .85; }
+.polaroid:focus-visible .viewfinder {
+  opacity: 1;
+}
 
 .corner {
   position: absolute;
   width: 20px;
   height: 20px;
-  border: 0 solid white;
-  filter: drop-shadow(0 1px 1px #0006);
-  transition: transform .25s;
+  border-color: white;
+  border-style: solid;
+  border-width: 0;
 }
 
-.tl { left:0;top:0;border-left-width:2px;border-top-width:2px;transform:translate(-6px,-6px); }
-.tr { right:0;top:0;border-right-width:2px;border-top-width:2px;transform:translate(6px,-6px); }
-.bl { left:0;bottom:0;border-left-width:2px;border-bottom-width:2px;transform:translate(-6px,6px); }
-.br { right:0;bottom:0;border-right-width:2px;border-bottom-width:2px;transform:translate(6px,6px); }
+.tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+.tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+.bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
 
-.polaroid:hover .corner,
-.polaroid:focus-visible .corner { transform: translate(0,0); }
-
-/* HANDWRITTEN ARROW — POINTS AT PORTRAIT */
-.details {
-  align-self: center;
-  padding-left: 0;
-  min-width: 0;
-}
+.details { align-self: center; }
 
 .annotation {
   position: relative;
-  margin: 0 0 34px -24px;
+  margin-bottom: 42px;
+  padding-left: 8px;
 }
 
 .handnote {
-  font: 500 clamp(23px,2vw,29px) Caveat, cursive;
-  color: #81786d;
+  font: 500 27px Caveat, cursive;
+  color: var(--brown);
   transform: rotate(-5deg);
   white-space: nowrap;
-  margin-bottom: 3px;
-  opacity: 0;
-  animation: noteIn .6s .7s forwards;
 }
 
 .note-arrow {
+  position: relative;
   display: block;
-  width: 115px;
-  height: 76px;
-  margin-left: -55px;
+  width: 78px;
+  height: 65px;
+  margin: 3px 0 0 -6px;
   overflow: visible;
 }
 
+/* The arrow ends before the portrait border. */
 .note-arrow path {
   fill: none;
-  stroke: #81786d;
+  stroke: var(--brown);
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 250;
-  stroke-dashoffset: 250;
-  animation: draw 1.1s .8s forwards;
 }
 
-@keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes noteIn { to { opacity: 1; } }
-
-.detail { margin-bottom: 34px; }
+.detail { margin-bottom: 42px; }
 
 .detail-label {
-  position: relative;
   display: inline-block;
-  font: 600 24px Caveat, cursive;
-  margin-bottom: 12px;
-  isolation: isolate;
-}
-
-.detail-label::before {
-  content: "";
-  position: absolute;
-  left: -7px;
-  right: -7px;
-  top: 45%;
-  height: 15px;
-  background: #c9d2c2;
+  font: 600 25px Caveat, cursive;
+  background: #e9e0d6;
+  padding: 0 7px;
   transform: rotate(-2deg);
-  z-index: -1;
-  opacity: .75;
 }
 
 .detail p {
+  color: #5f5852;
   font-size: 14px;
-  line-height: 1.85;
-  color: #5c5751;
-  margin: 0;
+  line-height: 2;
+  margin: 14px 0 0;
 }
 
-/* PAPER DIVIDER */
 .paper-edge {
-  height: 28px;
-  background:
-    linear-gradient(135deg,var(--cream) 25%,transparent 25%) -14px 0/28px 28px,
-    linear-gradient(225deg,var(--cream) 25%,transparent 25%) -14px 0/28px 28px,
-    var(--paper);
+  height: 12px;
+  background: linear-gradient(135deg, var(--cream) 25%, transparent 25%) -10px 0/20px 20px,
+              linear-gradient(225deg, var(--cream) 25%, transparent 25%) -10px 0/20px 20px;
 }
 
-/* MOVING PHOTOGRAPHY GALLERY */
 .moving-memories {
   background: var(--paper);
-  padding: 65px 0 80px;
+  padding: 65px 0 75px;
   overflow: hidden;
 }
 
@@ -384,15 +327,12 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .moving-viewport {
   overflow: hidden;
   padding: 30px 0 35px;
-  outline-offset: -5px;
-  touch-action: pan-y;
 }
 
 .moving-track {
   display: flex;
   width: max-content;
   animation: memoryScroll 48s linear infinite;
-  will-change: transform;
 }
 
 .moving-viewport:hover .moving-track,
@@ -412,7 +352,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   width: 210px;
   margin: 0;
   transform: rotate(-2deg);
-  transition: transform .3s ease;
+  transition: transform .3s;
   position: relative;
   z-index: 0;
 }
@@ -429,27 +369,24 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   padding: 9px 9px 25px;
   background: white;
   box-shadow: 0 9px 23px #33271c20;
-  overflow: hidden;
 }
 
-.moving-image img { height: 100%; object-fit: cover; }
+.moving-image img { height: 100%; }
 
 .moving-placeholder {
   height: 100%;
+  background: #e9dfd2;
+  color: #80786f;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 15px;
   text-align: center;
-  background: #e9dfd2;
-  color: #80786f;
-  text-transform: uppercase;
-  letter-spacing: .11em;
   font-size: 11px;
   line-height: 1.7;
+  text-transform: uppercase;
+  letter-spacing: .1em;
 }
-
-.moving-placeholder.green { background: #dce3d8; }
 
 .moving-photo figcaption {
   font: 500 23px Caveat, cursive;
@@ -462,240 +399,209 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   to { transform: translateX(-50%); }
 }
 
-/* A FEW THINGS ABOUT ME */
 .section-inner {
   max-width: 1320px;
   margin: auto;
 }
 
 .facts-section {
-  padding: 90px 6% 75px;
-  background: var(--cream);
+  padding: 85px 7% 90px;
 }
 
 .facts-heading {
-  font: normal clamp(43px,4.4vw,65px)/1.05 Georgia,serif;
+  font: normal clamp(40px, 4.5vw, 65px)/1.1 Georgia, serif;
   letter-spacing: -.04em;
-  margin: 15px 0 60px;
+  margin: 15px 0 55px;
 }
 
 .facts-grid {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  column-gap: 85px;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 80px;
+  row-gap: 30px;
 }
 
 .fact {
   border-top: 1px solid var(--line);
-  padding: 30px 0 35px;
+  padding-top: 30px;
   display: grid;
   grid-template-columns: 50px 1fr;
   gap: 15px;
 }
 
 .fact-number {
-  font: italic 19px Georgia,serif;
-  color: #a0a995;
+  font: italic 20px Georgia, serif;
+  color: #aa9785;
 }
 
 .fact h3 {
-  font: normal 26px Georgia,serif;
+  font: normal 27px Georgia, serif;
   margin: 0 0 12px;
 }
 
 .fact p {
+  color: #69625c;
   font-size: 15px;
-  line-height: 1.8;
-  color: #6d6762;
+  line-height: 1.9;
   margin: 0;
-  max-width: 460px;
 }
 
-/* INTERACTIVE TRAVEL DIARY */
+/* COMPACT TRAVEL MAP */
+
 .travel-section {
-  padding: 60px 6% 110px;
+  padding: 65px 5% 85px;
+  text-align: center;
   background: var(--cream);
 }
 
-.travel-heading {
-  text-align: center;
-  margin-bottom: 40px;
+.travel-section h2 {
+  font: normal clamp(43px, 4.7vw, 68px)/1.1 Georgia, serif;
+  letter-spacing: -.045em;
+  margin: 12px 0 14px;
 }
 
-.travel-heading h2 {
-  font: normal clamp(44px,5vw,70px)/1.1 Georgia,serif;
-  letter-spacing: -.05em;
-  margin: 15px 0;
+.travel-subtitle {
+  font: italic clamp(16px, 1.6vw, 21px) Georgia, serif;
+  color: #80776e;
+  margin: 0 0 13px;
 }
 
-.travel-heading p {
-  font: italic 19px/1.6 Georgia,serif;
-  color: #766f68;
-  margin: 0;
+.travel-hint {
+  font: 500 23px Caveat, cursive;
+  color: var(--brown);
+  margin: 0 0 20px;
 }
 
-.map-container {
+.map-wrap {
   position: relative;
-  max-width: 1220px;
+  width: min(100%, 1060px);
   margin: 0 auto;
-  padding: 20px 10px;
 }
 
-.world-map {
+#world-map {
   width: 100%;
+  height: auto;
   display: block;
   overflow: visible;
 }
 
 .country {
-  fill: #e5e9e0;
-  stroke: #faf8f5;
-  stroke-width: .7;
+  fill: #e9e0d6;
+  stroke: #f8f5f1;
+  stroke-width: .65;
   vector-effect: non-scaling-stroke;
-  transition: fill .25s;
 }
 
-.country:hover { fill: #d2dccb; }
-
-.map-pin {
+.pin {
   cursor: pointer;
   outline: none;
 }
 
-.map-pin .pin-halo {
-  fill: #a4b69c;
-  opacity: .2;
-  transition: transform .25s,opacity .25s;
-  transform-box: fill-box;
-  transform-origin: center;
+.pin-halo {
+  fill: #a88f7a;
+  opacity: .15;
+  transition: opacity .2s;
 }
 
-.map-pin .pin-center {
-  fill: #7f9678;
+.pin-core {
+  fill: #a88f7a;
   stroke: white;
-  stroke-width: 2;
-  vector-effect: non-scaling-stroke;
+  stroke-width: 1.5;
+  transition: fill .2s;
 }
 
-.map-pin:hover .pin-halo,
-.map-pin:focus-visible .pin-halo {
-  transform: scale(1.7);
-  opacity: .35;
-}
+.pin:hover .pin-halo,
+.pin:focus .pin-halo { opacity: .35; }
 
-.map-pin.selected .pin-center { fill: #566f50; }
+.pin:hover .pin-core,
+.pin:focus .pin-core { fill: #806957; }
 
-.map-status {
-  text-align: center;
-  font-size: 13px;
-  color: #81786d;
-  padding: 20px;
-}
-
-.travel-instruction {
-  text-align: center;
-  color: #81786d;
-  font: 500 23px Caveat,cursive;
-  margin: 5px 0 32px;
-}
-
-.travel-card {
-  max-width: 720px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 230px 1fr;
-  gap: 28px;
-  padding: 18px;
-  background: #fffdfa;
-  box-shadow: 0 8px 35px #33271c0c;
-  border: 1px solid #eae4db;
+.map-popup {
+  position: absolute;
+  width: min(260px, 75vw);
+  padding: 12px;
+  background: #fffcf8;
+  border: 1px solid #ded2c5;
+  box-shadow: 0 12px 30px #493a2a20;
+  text-align: left;
+  z-index: 10;
   border-radius: 3px;
-  animation: cardAppear .35s ease;
 }
 
-@keyframes cardAppear {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.map-popup[hidden] { display: none; }
+
+.popup-close {
+  position: absolute;
+  top: 6px;
+  right: 9px;
+  border: 0;
+  background: #fffcf8;
+  color: #65584e;
+  font-size: 21px;
+  cursor: pointer;
+  z-index: 2;
 }
 
-.travel-photo {
-  aspect-ratio: 4/3;
-  background: #e5e9e0;
-  overflow: hidden;
+.popup-photo {
+  height: 115px;
+  background: #eee5dc;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.travel-photo img { width: 100%;height: 100%;object-fit: cover; }
-
-.travel-photo-placeholder {
-  padding: 18px;
+  font: 500 21px Caveat, cursive;
+  color: #8c7b6d;
   text-align: center;
-  color: #7b8876;
-  font: 500 20px Caveat,cursive;
+  overflow: hidden;
 }
 
-.travel-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.popup-photo img {
+  height: 100%;
+  object-fit: cover;
 }
 
-.travel-info .eyebrow { color: #83917b; }
-
-.travel-info h3 {
-  font: normal 32px Georgia,serif;
-  margin: 12px 0;
+.popup-country {
+  margin: 13px 0 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: #9d8773;
+  text-transform: uppercase;
 }
 
-.travel-info p {
-  color: #6d6762;
-  font-size: 14px;
-  line-height: 1.8;
+.popup-city {
+  font: normal 25px Georgia, serif;
+  margin: 0 0 8px;
+}
+
+.popup-memory {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #74695f;
   margin: 0;
 }
 
-.travel-controls {
+.map-error {
+  font-size: 13px;
+  color: var(--brown);
+  padding: 40px;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 6%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 35px auto 0;
-  max-width: 1000px;
-}
-
-.travel-chip {
-  border: 1px solid #d9ded3;
-  background: transparent;
-  color: #686d63;
-  padding: 10px 17px;
-  border-radius: 30px;
-  cursor: pointer;
+  justify-content: space-between;
+  gap: 20px;
+  color: #827b75;
   font-size: 12px;
-  transition: .2s;
 }
 
-.travel-chip:hover,
-.travel-chip.active {
-  background: #dfe6da;
-  border-color: #b8c7b0;
-  color: #354531;
-}
+.footer a:hover { color: var(--ink); }
 
-.travel-note {
-  max-width: 700px;
-  margin: 50px auto 0;
-  text-align: center;
-  color: #898177;
-  font: italic 17px/1.7 Georgia,serif;
-}
-
-/* SCROLL ANIMATIONS */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity .7s ease,transform .7s ease;
+  transform: translateY(20px);
+  transition: opacity .65s, transform .65s;
 }
 
 .reveal.visible {
@@ -703,140 +609,92 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   transform: none;
 }
 
-/* CAMERA CURSOR ON PORTRAIT */
-.camera-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 34px;
-  height: 34px;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate3d(-100px,-100px,0);
-  transition: opacity .15s;
-}
-
-.camera-cursor.visible { opacity: 1; }
-.camera-cursor svg { width: 100%;height: 100%;filter: drop-shadow(0 1px 1px #fffb); }
-.camera-cursor.pressed svg { transform: scale(.8); }
-
-@media(hover:hover) and (pointer:fine) {
-  .polaroid,.polaroid * { cursor: none; }
-}
-
-/* FOOTER */
-.footer {
-  padding: 35px 6%;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  color: #827b75;
-  font-size: 12px;
-}
-
-.footer a {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-/* TABLET */
-@media(max-width:1100px) {
-  .nav nav { gap: 16px; }
+@media (max-width: 1100px) {
   .hero {
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding-top: 40px;
+    gap: 45px;
   }
+
   .details {
-    grid-column: 1/-1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 55px;
+    justify-content: center;
   }
+
   .annotation { display: none; }
 }
 
-/* MOBILE */
-@media(max-width:680px) {
+@media (max-width: 680px) {
   .nav {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr auto;
     padding: 15px 5%;
-    gap: 12px;
   }
+
   .logo { font-size: 28px; }
+
   .connect {
     grid-column: 2;
     grid-row: 1;
     padding: 12px 17px;
     font-size: 11px;
   }
+
   .nav nav {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
     grid-row: 2;
     justify-content: center;
     flex-wrap: wrap;
     gap: 18px;
   }
+
   .nav nav a { font-size: 11px; }
+
   .hero {
     grid-template-columns: 1fr;
-    padding: 45px 8% 55px;
-    gap: 24px;
+    padding: 50px 8% 65px;
+    gap: 28px;
   }
-  .intro h1 { font-size: clamp(48px,11vw,65px); }
+
+  .intro h1 { font-size: clamp(48px, 11vw, 65px); }
+
   .intro-quote { font-size: 18px; }
+
   .portrait-area {
-    width: min(83%,380px);
-    margin: 0 auto;
-    padding: 25px 0;
+    width: min(83%, 380px);
+    margin: 15px auto;
   }
+
   .details {
+    display: grid;
     grid-template-columns: 1fr;
     gap: 5px;
   }
+
   .moving-memories { padding: 48px 0 60px; }
   .moving-photo { width: 165px; }
   .moving-image { height: 195px; }
-  .moving-set { gap: 18px;padding-right: 18px; }
-  .moving-track { animation-duration: 38s; }
-  .facts-section { padding: 75px 8% 40px; }
+  .moving-set { gap: 18px; padding-right: 18px; }
+
+  .facts-section { padding: 70px 8%; }
   .facts-grid { grid-template-columns: 1fr; }
   .fact { grid-template-columns: 35px 1fr; }
-  .travel-section { padding: 40px 5% 75px; }
-  .travel-card {
-    grid-template-columns: 1fr;
-    max-width: 380px;
-  }
-  .travel-photo { aspect-ratio: 16/10; }
-  .travel-info { padding: 5px 8px 12px; }
-  .travel-info h3 { font-size: 28px; }
+
+  .travel-section { padding: 55px 3% 65px; }
+  .travel-hint { font-size: 20px; }
+
   .footer { flex-direction: column; }
 }
 
-@media(hover:none),(pointer:coarse) {
-  .camera-cursor { display: none; }
-  .polaroid { cursor: pointer; }
-  .moving-viewport {
-    overflow-x: auto;
-    touch-action: pan-x;
-    scrollbar-width: none;
-  }
-  .moving-viewport::-webkit-scrollbar { display: none; }
-  .moving-track { animation: none; }
-}
-
-@media(prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *,*::before,*::after {
+
+  *, *::before, *::after {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
   }
-  .reveal { opacity: 1;transform: none; }
-  .handnote { opacity: 1; }
-  .note-arrow path { stroke-dashoffset: 0; }
-  .camera-cursor { display: none; }
+
+  .reveal { opacity: 1; transform: none; }
   .moving-track { animation: none; }
   .moving-viewport { overflow-x: auto; }
 }
@@ -849,56 +707,70 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   <a class="logo" href="index.html">NZ</a>
   <nav aria-label="Main navigation">
     <a href="index.html">HOME</a>
-    <a class="active" aria-current="page" href="about.html">ABOUT</a>
+    <a href="about.html" class="active" aria-current="page">ABOUT</a>
     <a href="index.html#work">WORK</a>
     <a href="index.html#research">RESEARCH</a>
     <a href="index.html#life">LIFE</a>
   </nav>
-  <a class="connect" href="mailto:Nicholezheng123@gmail.com">Let's Connect ↗</a>
+  <a class="connect" href="mailto:Nicholezheng123@gmail.com">
+    Let's Connect ↗
+  </a>
 </header>
 
 <main>
 
-<!-- INTRODUCTION -->
-<section class="hero" aria-labelledby="about-title">
-
+<section class="hero">
   <div class="intro">
     <div class="eyebrow">GET TO KNOW ME</div>
-    <h1 id="about-title">A LITTLE<br>ABOUT ME</h1>
+
+    <h1>A LITTLE<br>ABOUT ME</h1>
 
     <svg class="underline" viewBox="0 0 185 19" aria-hidden="true">
       <path d="M5 12 Q58 4 110 11 T180 9"/>
     </svg>
 
     <p class="intro-quote">
-      “I'm a data-driven builder, curious researcher, and lifelong explorer who enjoys turning complex problems into simple, meaningful solutions.”
+      “I'm a data-driven builder, curious researcher, and lifelong explorer
+      who enjoys turning complex problems into simple, meaningful solutions.”
     </p>
 
     <div class="interests-icons">
       <div class="interest">
-        <svg viewBox="0 0 32 32"><path d="M4 27h24M7 24v-8h5v8M14 24V9h5v15M21 24V4h5v20"/></svg>
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 27h24M7 24v-8h5v8M14 24V9h5v15M21 24V4h5v20"/>
+        </svg>
         Data &amp;<br>Analytics
       </div>
       <div class="interest">
-        <svg viewBox="0 0 32 32"><circle cx="13" cy="13" r="8"/><path d="m19 19 9 9M9 13h8M13 9v8"/></svg>
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="13" cy="13" r="8"/>
+          <path d="m19 19 9 9M9 13h8M13 9v8"/>
+        </svg>
         Research
       </div>
       <div class="interest">
-        <svg viewBox="0 0 32 32"><path d="m3 25 10-17 6 10 4-6 7 13H3Z"/></svg>
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="m3 25 10-17 6 10 4-6 7 13H3Z"/>
+        </svg>
         Travel
       </div>
       <div class="interest">
-        <svg viewBox="0 0 32 32"><path d="M3 10h6l3-4h8l3 4h6v17H3V10Z"/><circle cx="16" cy="18" r="6"/></svg>
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M3 10h6l3-4h8l3 4h6v17H3V10Z"/>
+          <circle cx="16" cy="18" r="6"/>
+        </svg>
         Photography
       </div>
     </div>
   </div>
 
   <div class="portrait-area">
-    <div class="polaroid" role="button" tabindex="0" aria-label="Take a portrait photo">
+    <div class="polaroid" role="button" tabindex="0"
+         aria-label="Capture portrait photograph">
       <span class="tape"></span>
       <div class="photo-window">
-        <img src="assets/IMG_4700.jpeg" alt="Nichole standing under an arched walkway">
+        <img src="assets/IMG_4700.jpeg"
+             alt="Nichole standing under an arched walkway">
         <div class="viewfinder" aria-hidden="true">
           <span class="corner tl"></span>
           <span class="corner tr"></span>
@@ -913,14 +785,18 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   <aside class="details">
     <div class="annotation">
       <div class="handnote">hi, I'm Nichole ♡</div>
-      <svg class="note-arrow" viewBox="0 0 115 76" aria-hidden="true">
-        <path d="M110 6 C83 13 65 35 12 62 M27 48 L12 62 L31 65"/>
+      <svg class="note-arrow" viewBox="0 0 120 95" aria-hidden="true">
+        <path d="M105 8 C85 12 63 30 25 65 M40 63 L25 65 L31 51"/>
       </svg>
     </div>
 
     <div class="detail">
       <div class="detail-label">Currently</div>
-      <p>M.Eng. in Operations Research &amp;<br>Information Engineering<br>Cornell University</p>
+      <p>
+        M.Eng. in Operations Research &amp;<br>
+        Information Engineering<br>
+        Cornell University
+      </p>
     </div>
 
     <div class="detail">
@@ -928,33 +804,31 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       <p>Product Strategy · Analytics · Travel · Photography · Cooking</p>
     </div>
   </aside>
-
 </section>
 
 <div class="paper-edge" aria-hidden="true"></div>
 
-<!-- CONTINUOUS PHOTO GALLERY -->
-<section class="moving-memories" aria-label="Scrolling photography gallery">
-
+<section class="moving-memories" aria-label="Moving photo gallery">
   <div class="moving-inner">
     <div class="eyebrow">LITTLE MOMENTS, ON REPEAT</div>
     <p class="moving-subtitle">A moving collection of memories ♡</p>
   </div>
 
-  <div class="moving-viewport" tabindex="0" aria-label="Photo gallery">
+  <div class="moving-viewport" tabindex="0"
+       aria-label="Photo gallery, hover to pause">
     <div class="moving-track">
       <div class="moving-set">
 
         <figure class="moving-photo">
           <div class="moving-image">
-            <img src="assets/IMG_2892.jpeg" alt="Travel memory" loading="lazy">
+            <img src="assets/IMG_2892.jpeg" alt="Coastal travel memory">
           </div>
           <figcaption>little adventures</figcaption>
         </figure>
 
         <figure class="moving-photo">
           <div class="moving-image">
-            <img src="assets/IMG_5886.jpeg" alt="Personal memory" loading="lazy">
+            <img src="assets/IMG_5886.jpeg" alt="Personal photo memory">
           </div>
           <figcaption>the little things</figcaption>
         </figure>
@@ -968,21 +842,21 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
         <figure class="moving-photo">
           <div class="moving-image">
-            <img src="assets/DSC07467.jpeg" alt="Cornell memories" loading="lazy">
+            <img src="assets/DSC07467.jpeg" alt="Cornell memorabilia">
           </div>
           <figcaption>captured moments</figcaption>
         </figure>
 
         <figure class="moving-photo">
           <div class="moving-image">
-            <div class="moving-placeholder green">your climbing photo</div>
+            <div class="moving-placeholder">your climbing photo</div>
           </div>
           <figcaption>new heights</figcaption>
         </figure>
 
         <figure class="moving-photo">
           <div class="moving-image">
-            <img src="assets/IMG_4700.jpeg" alt="Portrait" loading="lazy">
+            <img src="assets/IMG_4700.jpeg" alt="Portrait memory">
           </div>
           <figcaption>just me</figcaption>
         </figure>
@@ -990,15 +864,12 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
       </div>
     </div>
   </div>
-
 </section>
 
-<!-- PERSONAL FACTS -->
-<section class="facts-section" aria-labelledby="facts-title">
+<section class="facts-section">
   <div class="section-inner">
-
     <div class="eyebrow reveal">SMALL DETAILS, BIG PERSONALITY</div>
-    <h2 id="facts-title" class="facts-heading reveal">A Few Things About Me</h2>
+    <h2 class="facts-heading reveal">A Few Things About Me</h2>
 
     <div class="facts-grid">
       <div class="fact reveal">
@@ -1033,50 +904,30 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- INTERACTIVE WORLD TRAVEL DIARY -->
 <section class="travel-section" aria-labelledby="travel-title">
-  <div class="section-inner">
+  <div class="eyebrow">MY LITTLE TRAVEL DIARY</div>
+  <h2 id="travel-title">Places I've Been</h2>
+  <p class="travel-subtitle">
+    A little map of places, memories, and moments along the way.
+  </p>
+  <p class="travel-hint">click a little pin to explore a memory ♡</p>
 
-    <div class="travel-heading reveal">
-      <div class="eyebrow">POSTCARDS FROM EVERYWHERE</div>
-      <h2 id="travel-title">Places I've Been</h2>
-      <p>A little map of places, memories, and moments along the way.</p>
+  <div class="map-wrap" id="map-wrap">
+    <svg id="world-map" viewBox="0 0 1000 500"
+         role="img" aria-label="Interactive world map with travel pins">
+    </svg>
+
+    <div class="map-popup" id="map-popup" hidden>
+      <button class="popup-close" id="popup-close"
+              aria-label="Close memory">×</button>
+      <div class="popup-photo" id="popup-photo"></div>
+      <div class="popup-country" id="popup-country"></div>
+      <h3 class="popup-city" id="popup-city"></h3>
+      <p class="popup-memory" id="popup-memory"></p>
     </div>
-
-    <div class="map-container">
-      <svg
-        id="worldMap"
-        class="world-map"
-        viewBox="0 0 1000 520"
-        role="img"
-        aria-label="Interactive world map showing travel destinations">
-      </svg>
-      <div class="map-status" id="mapStatus">Loading the world map...</div>
-    </div>
-
-    <p class="travel-instruction">click a little pin to explore a memory ♡</p>
-
-    <div class="travel-card" id="travelCard" aria-live="polite">
-      <div class="travel-photo" id="travelPhoto">
-        <div class="travel-photo-placeholder">A little travel memory ♡</div>
-      </div>
-      <div class="travel-info">
-        <div class="eyebrow" id="travelCountry">TRAVEL DIARY</div>
-        <h3 id="travelCity">Your next adventure</h3>
-        <p id="travelDescription">Select a destination on the map to explore its story.</p>
-      </div>
-    </div>
-
-    <div class="travel-controls" id="travelControls"></div>
-
-    <p class="travel-note">
-      Collecting places, photographs, and stories — one little adventure at a time. ♡
-    </p>
-
   </div>
 </section>
 
@@ -1087,26 +938,22 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   <a href="index.html">Back to home ↗</a>
 </footer>
 
-<!-- CAMERA MOUSE CURSOR -->
-<div class="camera-cursor" aria-hidden="true">
-  <svg viewBox="0 0 36 36" fill="none">
-    <path d="M7 12h5l2.5-3h7l2.5 3h5a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V14a2 2 0 0 1 2-2Z" fill="#f5f1ed" stroke="#191715" stroke-width="1.5" stroke-linejoin="round"/>
-    <circle cx="18" cy="20" r="5" stroke="#191715" stroke-width="1.5"/>
-    <circle cx="27" cy="16" r="1" fill="#191715"/>
-  </svg>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
   "use strict";
 
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-  /* SCROLL REVEAL */
-  const reveal = document.querySelectorAll(".reveal");
+  // SCROLL REVEALS
+  const reveals = document.querySelectorAll(".reveal");
 
   if (reduced || !("IntersectionObserver" in window)) {
-    reveal.forEach(el => el.classList.add("visible"));
+    reveals.forEach(el => el.classList.add("visible"));
   } else {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -1117,285 +964,248 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, { threshold: .08 });
 
-    reveal.forEach(el => observer.observe(el));
+    reveals.forEach(el => observer.observe(el));
   }
 
-  /* INFINITE PHOTOGRAPHY GALLERY */
+  // LOOPING PHOTO GALLERY
   const track = document.querySelector(".moving-track");
   const firstSet = track?.querySelector(".moving-set");
 
   if (firstSet) {
     const clone = firstSet.cloneNode(true);
     clone.setAttribute("aria-hidden", "true");
-    clone.querySelectorAll("img").forEach(img => img.alt = "");
     track.appendChild(clone);
   }
 
-  /* CAMERA CURSOR AND SHUTTER */
-  const camera = document.querySelector(".camera-cursor");
-  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches && !reduced;
+  // PORTRAIT SHUTTER
+  document.querySelectorAll(".polaroid").forEach(photo => {
+    function capture() {
+      if (photo.classList.contains("capturing")) return;
 
-  let active = false;
-  let tx = -100, ty = -100, x = -100, y = -100, frame = 0;
+      photo.classList.add("capturing");
 
-  function loop() {
-    if (!active) {
-      frame = 0;
-      return;
+      setTimeout(() => {
+        photo.classList.remove("capturing");
+      }, 450);
     }
-    x += (tx - x) * .35;
-    y += (ty - y) * .35;
-    camera.style.transform = `translate3d(${x-17}px,${y-17}px,0)`;
-    frame = requestAnimationFrame(loop);
-  }
 
-  function enter(e) {
-    if (!fine || e.pointerType !== "mouse") return;
-    tx = x = e.clientX;
-    ty = y = e.clientY;
-    active = true;
-    camera.classList.add("visible");
-    if (!frame) frame = requestAnimationFrame(loop);
-  }
+    photo.addEventListener("click", capture);
 
-  function leave() {
-    active = false;
-    camera.classList.remove("visible", "pressed");
-  }
-
-  function snap(p) {
-    if (p.classList.contains("snapping")) return;
-    p.classList.add("snapping");
-    camera.classList.add("pressed");
-    setTimeout(() => {
-      p.classList.remove("snapping");
-      camera.classList.remove("pressed");
-    }, reduced ? 0 : 440);
-  }
-
-  document.querySelectorAll(".polaroid").forEach(p => {
-    p.addEventListener("pointerenter", enter);
-    p.addEventListener("pointermove", e => {
-      if (e.pointerType === "mouse") {
-        tx = e.clientX;
-        ty = e.clientY;
+    photo.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        capture();
       }
     });
-    p.addEventListener("pointerleave", leave);
-    p.addEventListener("pointerdown", () => camera.classList.add("pressed"));
-    p.addEventListener("pointerup", () => camera.classList.remove("pressed"));
-    p.addEventListener("click", () => snap(p));
-    p.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        snap(p);
-      }
-    });
-    p.addEventListener("blur", leave);
   });
 
-  window.addEventListener("blur", leave);
-
-  /* =============================================
-     TRAVEL DIARY — EDIT YOUR DESTINATIONS HERE
-
-     These are EXAMPLE destinations, not your
-     actual travel history.
-
-     To add a trip, copy one entry and change:
-       city: city or destination name
-       country: country name
-       lat: latitude
-       lon: longitude
-       photo: path to your image
-       description: your personal memory
-
-     Example photo:
-       photo: "assets/my-paris-trip.jpeg"
-
-     Leave photo: "" for a placeholder.
-     ============================================= */
-
-  const destinations = [
+  // TRAVEL MEMORIES
+  // Add new locations here using longitude, latitude,
+  // an optional photo path, and your own memory text.
+  const places = [
     {
       city: "New York City",
       country: "United States",
+      lon: -74.006,
       lat: 40.7128,
-      lon: -74.0060,
       photo: "",
-      description: "Add your favorite NYC memory and a photo from your adventures here."
+      memory: "Add your favorite NYC memory here."
     },
     {
       city: "Paris",
       country: "France",
-      lat: 48.8566,
       lon: 2.3522,
+      lat: 48.8566,
       photo: "",
-      description: "A little postcard from Paris. Replace this with your own travel story."
+      memory: "Add a little memory from Paris here."
     },
     {
       city: "Tokyo",
       country: "Japan",
-      lat: 35.6762,
-      lon: 139.6503,
+      lon: 139.6917,
+      lat: 35.6895,
       photo: "",
-      description: "A placeholder for a future travel memory and favorite photograph."
+      memory: "Add your favorite Tokyo moment here."
     },
     {
       city: "Hanoi",
       country: "Vietnam",
-      lat: 21.0278,
       lon: 105.8342,
+      lat: 21.0278,
       photo: "",
-      description: "Add your favorite moments, food discoveries, and photos from Hanoi."
+      memory: "Add a favorite memory from Hanoi here."
     }
   ];
 
-  const mapElement = document.getElementById("worldMap");
-  const mapStatus = document.getElementById("mapStatus");
-  const controls = document.getElementById("travelControls");
-  const travelPhoto = document.getElementById("travelPhoto");
-  const travelCountry = document.getElementById("travelCountry");
-  const travelCity = document.getElementById("travelCity");
-  const travelDescription = document.getElementById("travelDescription");
+  const svg = document.getElementById("world-map");
+  const mapWrap = document.getElementById("map-wrap");
+  const popup = document.getElementById("map-popup");
+  const popupPhoto = document.getElementById("popup-photo");
+  const popupCountry = document.getElementById("popup-country");
+  const popupCity = document.getElementById("popup-city");
+  const popupMemory = document.getElementById("popup-memory");
 
-  let selectedIndex = -1;
+  let activePin = null;
 
-  function selectDestination(index) {
-    const destination = destinations[index];
-    if (!destination) return;
-
-    selectedIndex = index;
-
-    travelCountry.textContent = destination.country.toUpperCase();
-    travelCity.textContent = destination.city;
-    travelDescription.textContent = destination.description;
-
-    travelPhoto.replaceChildren();
-
-    if (destination.photo) {
-      const img = document.createElement("img");
-      img.src = destination.photo;
-      img.alt = destination.city + " travel photograph";
-
-      img.onerror = () => {
-        travelPhoto.replaceChildren();
-        const placeholder = document.createElement("div");
-        placeholder.className = "travel-photo-placeholder";
-        placeholder.textContent = "Add your travel photo ♡";
-        travelPhoto.appendChild(placeholder);
-      };
-
-      travelPhoto.appendChild(img);
-    } else {
-      const placeholder = document.createElement("div");
-      placeholder.className = "travel-photo-placeholder";
-      placeholder.textContent = "Add your " + destination.city + " photo ♡";
-      travelPhoto.appendChild(placeholder);
-    }
-
-    document.querySelectorAll(".travel-chip").forEach((chip, i) => {
-      chip.classList.toggle("active", i === index);
-      chip.setAttribute("aria-pressed", i === index ? "true" : "false");
-    });
-
-    document.querySelectorAll(".map-pin").forEach((pin, i) => {
-      pin.classList.toggle("selected", i === index);
-    });
+  function closePopup() {
+    popup.hidden = true;
+    activePin = null;
   }
 
-  /* DESTINATION BUTTONS */
-  destinations.forEach((destination, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "travel-chip";
-    button.textContent = destination.city;
-    button.setAttribute("aria-pressed", "false");
-    button.addEventListener("click", () => selectDestination(index));
-    controls.appendChild(button);
+  document.getElementById("popup-close")
+    .addEventListener("click", closePopup);
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closePopup();
   });
 
-  /* WORLD MAP WITH COUNTRY OUTLINES */
-  async function createMap() {
-    if (typeof d3 === "undefined") {
-      mapStatus.textContent = "The map library couldn't load. Please check your connection.";
+  document.addEventListener("click", event => {
+    if (!popup.hidden &&
+        !popup.contains(event.target) &&
+        !event.target.closest(".pin")) {
+      closePopup();
+    }
+  });
+
+  function openMemory(place, pin, x, y) {
+    if (activePin === pin && !popup.hidden) {
+      closePopup();
       return;
     }
 
-    const width = 1000;
-    const height = 520;
+    activePin = pin;
 
-    const svg = d3.select(mapElement);
+    popupCountry.textContent = place.country;
+    popupCity.textContent = place.city;
+    popupMemory.textContent = place.memory;
+
+    popupPhoto.replaceChildren();
+
+    if (place.photo) {
+      const img = document.createElement("img");
+      img.src = place.photo;
+      img.alt = place.city + " travel memory";
+      img.onerror = () => {
+        popupPhoto.textContent = "add your photo ♡";
+      };
+      popupPhoto.appendChild(img);
+    } else {
+      popupPhoto.textContent = "add your photo ♡";
+    }
+
+    popup.hidden = false;
+
+    const width = mapWrap.clientWidth;
+    const scale = width / 1000;
+
+    const px = x * scale;
+    const py = y * scale;
+
+    const popupWidth = popup.offsetWidth;
+    const popupHeight = popup.offsetHeight;
+
+    let left = px + 16;
+    let top = py - popupHeight / 2;
+
+    if (left + popupWidth > width - 8) {
+      left = px - popupWidth - 16;
+    }
+
+    left = Math.max(8, Math.min(left, width - popupWidth - 8));
+
+    const mapHeight = svg.getBoundingClientRect().height;
+    top = Math.max(8, Math.min(top, mapHeight - popupHeight - 8));
+
+    popup.style.left = left + "px";
+    popup.style.top = top + "px";
+  }
+
+  async function createMap() {
+    if (typeof d3 === "undefined" ||
+        typeof topojson === "undefined") {
+      svg.outerHTML = '<p class="map-error">The map could not load. Please check your internet connection.</p>';
+      return;
+    }
+
+    const map = d3.select(svg);
 
     const projection = d3.geoNaturalEarth1()
-      .fitExtent([[20, 20], [width - 20, height - 20]], { type: "Sphere" });
+      .fitExtent([[18, 12], [982, 488]], {type: "Sphere"});
 
     const path = d3.geoPath(projection);
 
-    const mapLayer = svg.append("g");
-    const pinLayer = svg.append("g");
-
     try {
       const response = await fetch(
-        "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
+        "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
       );
 
-      if (!response.ok) throw new Error("Map request failed");
+      if (!response.ok) throw new Error("Map data unavailable");
 
-      const geojson = await response.json();
+      const world = await response.json();
 
-      mapLayer.selectAll("path")
-        .data(geojson.features)
+      const countries = topojson.feature(
+        world,
+        world.objects.countries
+      );
+
+      map.selectAll(".country")
+        .data(countries.features)
         .join("path")
         .attr("class", "country")
         .attr("d", path);
 
-      mapStatus.style.display = "none";
+      // Keep all map pins keyboard-accessible.
+      places.forEach(place => {
+        const coords = projection([place.lon, place.lat]);
+        if (!coords) return;
+
+        const [x, y] = coords;
+
+        const pin = map.append("g")
+          .attr("class", "pin")
+          .attr("transform", `translate(${x},${y})`)
+          .attr("tabindex", 0)
+          .attr("role", "button")
+          .attr("aria-label", `Explore ${place.city} memory`);
+
+        pin.append("circle")
+          .attr("class", "pin-halo")
+          .attr("r", 13);
+
+        pin.append("circle")
+          .attr("class", "pin-core")
+          .attr("r", 6);
+
+        pin.on("click", event => {
+          event.stopPropagation();
+          openMemory(place, pin.node(), x, y);
+        });
+
+        pin.on("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openMemory(place, pin.node(), x, y);
+          }
+        });
+      });
 
     } catch (error) {
-      mapStatus.textContent =
-        "Country outlines couldn't load. Destination buttons are still available below.";
-      console.error("Travel map loading error:", error);
+      map.selectAll("*").remove();
+
+      map.append("text")
+        .attr("x", 500)
+        .attr("y", 250)
+        .attr("text-anchor", "middle")
+        .attr("fill", "#8c7b6d")
+        .attr("font-size", 15)
+        .text("The world map is temporarily unavailable.");
     }
-
-    destinations.forEach((destination, index) => {
-      const coordinates = projection([destination.lon, destination.lat]);
-
-      if (!coordinates) return;
-
-      const pin = pinLayer.append("g")
-        .attr("class", "map-pin")
-        .attr("transform", `translate(${coordinates[0]},${coordinates[1]})`)
-        .attr("role", "button")
-        .attr("tabindex", "0")
-        .attr("aria-label", "View travel memory: " + destination.city);
-
-      pin.append("circle")
-        .attr("class", "pin-halo")
-        .attr("r", 12);
-
-      pin.append("circle")
-        .attr("class", "pin-center")
-        .attr("r", 5.5);
-
-      pin.append("title")
-        .text(destination.city + ", " + destination.country);
-
-      pin.on("click", () => selectDestination(index));
-
-      pin.on("keydown", event => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          selectDestination(index);
-        }
-      });
-    });
-
-    if (destinations.length > 0) selectDestination(0);
   }
 
   createMap();
-});
+
+  window.addEventListener("resize", closePopup);
+})();
 </script>
 
 </body>
