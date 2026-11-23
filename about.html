@@ -1,0 +1,1160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Me — Nichole Zheng</title>
+<meta name="theme-color" content="#f5f1ed">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #f5f1ed;
+  --paper: #faf8f5;
+  --ink: #191715;
+  --muted: #827b75;
+  --brown: #8c7b6d;
+  --light-brown: #e9e0d6;
+  --line: #ddd7cf;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.nav {
+  max-width: 1650px;
+  margin: auto;
+  min-height: 92px;
+  padding: 18px 5%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+/* NZ SIGNATURE LOGO — same placement and visual treatment across pages */
+.nav > .logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  justify-self: start;
+  width: 70px;
+  height: 60px;
+  flex: none;
+  margin: 0;
+  padding: 0;
+}
+.nav > .logo > img {
+  display: block;
+  width: 70px;
+  height: 55px;
+  max-width: 70px;
+  max-height: 55px;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: multiply;
+}
+
+.nav nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav nav a {
+  position: relative;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .09em;
+  padding: 10px 0;
+}
+
+.nav nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transition: transform .25s;
+}
+
+.nav nav a:hover::after,
+.nav nav a.active::after {
+  transform: scaleX(1);
+}
+
+.connect {
+  justify-self: end;
+  background: var(--ink);
+  color: white;
+  border-radius: 40px;
+  padding: 15px 25px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}
+
+.hero {
+  max-width: 1480px;
+  margin: auto;
+  min-height: 680px;
+  padding: 48px 6% 68px;
+  display: grid;
+  grid-template-columns: 1.08fr 1.05fr .8fr;
+  gap: clamp(36px, 4.5vw, 78px);
+  align-items: center;
+}
+
+.intro h1 {
+  font: normal clamp(49px, 4.55vw, 72px)/.99 Georgia, serif;
+  letter-spacing: -.055em;
+  margin: 20px 0 12px;
+}
+
+.underline {
+  width: 150px;
+  height: 19px;
+  margin-bottom: 23px;
+}
+
+.underline path {
+  fill: none;
+  stroke: #c4b3a3;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.intro-quote {
+  font: italic clamp(17px, 1.3vw, 20px)/1.65 Georgia, serif;
+  max-width: 410px;
+  margin: 0 0 32px;
+  color: #38322e;
+}
+
+.interests-icons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 410px;
+}
+
+.interest {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #655e58;
+  text-align: center;
+}
+
+.interest svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 12px;
+  fill: none;
+  stroke: #45403b;
+  stroke-width: 1.5;
+}
+
+.portrait-area {
+  position: relative;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.polaroid {
+  position: relative;
+  padding: 14px 14px 37px;
+  background: white;
+  box-shadow: 0 20px 40px #30271f20;
+  transform: rotate(3deg);
+  transition: transform .35s, box-shadow .35s;
+  cursor: pointer;
+  outline-offset: 8px;
+}
+
+.polaroid:hover,
+.polaroid:focus-visible {
+  transform: rotate(1deg) translateY(-6px);
+  box-shadow: 0 26px 45px #30271f28;
+}
+
+.tape {
+  position: absolute;
+  width: 120px;
+  height: 33px;
+  background: #ded1b5b8;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  z-index: 3;
+}
+
+.photo-window {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5.3;
+}
+
+.photo-window img {
+  width: 100%;
+  height: 100%;
+}
+
+.flash {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.polaroid.capturing .flash {
+  animation: shutterFlash .4s ease;
+}
+
+@keyframes shutterFlash {
+  0% { opacity: 0; }
+  18% { opacity: .8; }
+  45% { opacity: .2; }
+  100% { opacity: 0; }
+}
+
+.viewfinder {
+  position: absolute;
+  inset: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s;
+}
+
+.polaroid:hover .viewfinder,
+.polaroid:focus-visible .viewfinder {
+  opacity: 1;
+}
+
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: white;
+  border-style: solid;
+  border-width: 0;
+}
+
+.tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+.tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+.bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+
+.details { align-self: center; }
+
+.annotation {
+  position: relative;
+  margin-bottom: 42px;
+  padding-left: 8px;
+}
+
+.handnote {
+  font: 500 27px Caveat, cursive;
+  color: var(--brown);
+  transform: rotate(-5deg);
+  white-space: nowrap;
+}
+
+.note-arrow {
+  position: relative;
+  display: block;
+  width: 78px;
+  height: 65px;
+  margin: 3px 0 0 -6px;
+  overflow: visible;
+}
+
+/* The arrow ends before the portrait border. */
+.note-arrow path {
+  fill: none;
+  stroke: var(--brown);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.detail { margin-bottom: 42px; }
+
+.detail-label {
+  display: inline-block;
+  font: 600 25px Caveat, cursive;
+  background: #e9e0d6;
+  padding: 0 7px;
+  transform: rotate(-2deg);
+}
+
+.detail p {
+  color: #5f5852;
+  font-size: 14px;
+  line-height: 2;
+  margin: 14px 0 0;
+}
+
+.paper-edge {
+  height: 12px;
+  background: linear-gradient(135deg, var(--cream) 25%, transparent 25%) -10px 0/20px 20px,
+              linear-gradient(225deg, var(--cream) 25%, transparent 25%) -10px 0/20px 20px;
+}
+
+.moving-memories {
+  background: var(--paper);
+  padding: 65px 0 75px;
+  overflow: hidden;
+}
+
+.moving-inner {
+  max-width: 1320px;
+  margin: 0 auto 30px;
+  padding: 0 6%;
+}
+
+.moving-subtitle {
+  font: italic 20px Georgia, serif;
+  color: #766f68;
+  margin: 12px 0 0;
+}
+
+.moving-viewport {
+  overflow: hidden;
+  padding: 30px 0 35px;
+}
+
+.moving-track {
+  display: flex;
+  width: max-content;
+  animation: memoryScroll 48s linear infinite;
+}
+
+.moving-viewport:hover .moving-track,
+.moving-viewport:focus-within .moving-track {
+  animation-play-state: paused;
+}
+
+.moving-set {
+  display: flex;
+  gap: 26px;
+  padding-right: 26px;
+  flex: none;
+}
+
+.moving-photo {
+  flex: none;
+  width: 210px;
+  margin: 0;
+  transform: rotate(-2deg);
+  transition: transform .3s;
+  position: relative;
+  z-index: 0;
+}
+
+.moving-photo:nth-child(even) { transform: rotate(2deg); }
+
+.moving-photo:hover {
+  transform: rotate(0) scale(1.075) translateY(-6px);
+  z-index: 2;
+}
+
+.moving-image {
+  height: 245px;
+  padding: 9px 9px 25px;
+  background: white;
+  box-shadow: 0 9px 23px #33271c20;
+}
+
+.moving-image img { height: 100%; }
+
+.moving-placeholder {
+  height: 100%;
+  background: #e9dfd2;
+  color: #80786f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.7;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.moving-photo figcaption {
+  font: 500 23px Caveat, cursive;
+  color: #81786d;
+  text-align: center;
+  margin-top: 13px;
+}
+
+@keyframes memoryScroll {
+  to { transform: translateX(-50%); }
+}
+
+.section-inner {
+  max-width: 1320px;
+  margin: auto;
+}
+
+.facts-section {
+  padding: 85px 7% 90px;
+}
+
+.facts-heading {
+  font: normal clamp(40px, 4.5vw, 65px)/1.1 Georgia, serif;
+  letter-spacing: -.04em;
+  margin: 15px 0 55px;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 80px;
+  row-gap: 30px;
+}
+
+.fact {
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 15px;
+}
+
+.fact-number {
+  font: italic 20px Georgia, serif;
+  color: #aa9785;
+}
+
+.fact h3 {
+  font: normal 27px Georgia, serif;
+  margin: 0 0 12px;
+}
+
+.fact p {
+  color: #69625c;
+  font-size: 15px;
+  line-height: 1.9;
+  margin: 0;
+}
+
+/* COMPACT TRAVEL MAP */
+
+.travel-section {
+  padding: 65px 5% 85px;
+  text-align: center;
+  background: var(--cream);
+}
+
+.travel-section h2 {
+  font: normal clamp(43px, 4.7vw, 68px)/1.1 Georgia, serif;
+  letter-spacing: -.045em;
+  margin: 12px 0 14px;
+}
+
+.travel-subtitle {
+  font: italic clamp(16px, 1.6vw, 21px) Georgia, serif;
+  color: #80776e;
+  margin: 0 0 13px;
+}
+
+.travel-hint {
+  font: 500 23px Caveat, cursive;
+  color: var(--brown);
+  margin: 0 0 20px;
+}
+
+.map-wrap {
+  position: relative;
+  width: min(100%, 1060px);
+  margin: 0 auto;
+}
+
+#world-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.country {
+  fill: #e9e0d6;
+  stroke: #f8f5f1;
+  stroke-width: .65;
+  vector-effect: non-scaling-stroke;
+}
+
+.pin {
+  cursor: pointer;
+  outline: none;
+}
+
+.pin-halo {
+  fill: #a88f7a;
+  opacity: .15;
+  transition: opacity .2s;
+}
+
+.pin-core {
+  fill: #a88f7a;
+  stroke: white;
+  stroke-width: 1.5;
+  transition: fill .2s;
+}
+
+.pin:hover .pin-halo,
+.pin:focus .pin-halo { opacity: .35; }
+
+.pin:hover .pin-core,
+.pin:focus .pin-core { fill: #806957; }
+
+.map-popup {
+  position: absolute;
+  width: min(260px, 75vw);
+  padding: 12px;
+  background: #fffcf8;
+  border: 1px solid #ded2c5;
+  box-shadow: 0 12px 30px #493a2a20;
+  text-align: left;
+  z-index: 10;
+  border-radius: 3px;
+}
+
+.map-popup[hidden] { display: none; }
+
+.popup-close {
+  position: absolute;
+  top: 6px;
+  right: 9px;
+  border: 0;
+  background: #fffcf8;
+  color: #65584e;
+  font-size: 21px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.popup-photo {
+  height: 115px;
+  background: #eee5dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 500 21px Caveat, cursive;
+  color: #8c7b6d;
+  text-align: center;
+  overflow: hidden;
+}
+
+.popup-photo img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup-country {
+  margin: 13px 0 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: #9d8773;
+  text-transform: uppercase;
+}
+
+.popup-city {
+  font: normal 25px Georgia, serif;
+  margin: 0 0 8px;
+}
+
+.popup-memory {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #74695f;
+  margin: 0;
+}
+
+.map-error {
+  font-size: 13px;
+  color: var(--brown);
+  padding: 40px;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 30px 6%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #827b75;
+  font-size: 12px;
+}
+
+.footer a:hover { color: var(--ink); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .65s, transform .65s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+  }
+
+  .details {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 55px;
+    justify-content: center;
+  }
+
+  .annotation { display: none; }
+}
+
+@media (max-width: 680px) {
+  .nav {
+    grid-template-columns: 1fr auto;
+    padding: 15px 5%;
+  }
+
+  .nav > .logo { width: 60px; height: 50px; }
+  .nav > .logo > img { width: 60px; height: 48px; max-width: 60px; max-height: 48px; }
+
+  .connect {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 12px 17px;
+    font-size: 11px;
+  }
+
+  .nav nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .nav nav a { font-size: 11px; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 50px 8% 65px;
+    gap: 28px;
+  }
+
+  .intro h1 { font-size: clamp(48px, 11vw, 65px); }
+
+  .intro-quote { font-size: 18px; }
+
+  .portrait-area {
+    width: min(83%, 380px);
+    margin: 15px auto;
+  }
+
+  .details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .moving-memories { padding: 48px 0 60px; }
+  .moving-photo { width: 165px; }
+  .moving-image { height: 195px; }
+  .moving-set { gap: 18px; padding-right: 18px; }
+
+  .facts-section { padding: 70px 8%; }
+  .facts-grid { grid-template-columns: 1fr; }
+  .fact { grid-template-columns: 35px 1fr; }
+
+  .travel-section { padding: 55px 3% 65px; }
+  .travel-hint { font-size: 20px; }
+
+  .footer { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal { opacity: 1; transform: none; }
+  .moving-track { animation: none; }
+  .moving-viewport { overflow-x: auto; }
+}
+
+/* Camera-shaped cursor for the About portrait */
+.about-camera-cursor{position:fixed;left:0;top:0;width:34px;height:34px;z-index:9999;pointer-events:none;opacity:0;transform:translate3d(-100px,-100px,0);transition:opacity .15s ease}
+.about-camera-cursor svg{width:100%;height:100%;filter:drop-shadow(0 1px 1px #fff9);transition:transform .12s ease}
+.about-camera-cursor.visible{opacity:1}
+.about-camera-cursor.pressed svg{transform:scale(.82)}
+@media(hover:hover) and (pointer:fine){.polaroid,.polaroid *{cursor:none}}
+@media(hover:none),(pointer:coarse){.about-camera-cursor{display:none}.polaroid,.polaroid *{cursor:pointer}}
+
+/* ABOUT HERO: homepage-inspired staggered entrance, same fonts and palette */
+@keyframes aboutHeroArrive { from {opacity:0;transform:translateY(24px)} to {opacity:1;transform:translateY(0)} }
+@keyframes aboutPortraitArrive {from{opacity:0;transform:translateY(30px) rotate(-3deg) scale(.97)}to{opacity:1;transform:translateY(0) rotate(0) scale(1)}}
+.hero .intro > .eyebrow {animation:aboutHeroArrive .7s ease both .1s}
+.hero .intro > h1 {animation:aboutHeroArrive .85s cubic-bezier(.2,.7,.2,1) both .25s}
+.hero .intro > .underline {animation:aboutHeroArrive .7s ease both .5s}
+.hero .intro > .intro-quote {animation:aboutHeroArrive .85s ease both .65s}
+.hero .interests-icons {animation:aboutHeroArrive .85s ease both .8s}
+.hero .portrait-area {animation:aboutPortraitArrive 1s cubic-bezier(.2,.7,.2,1) both .35s}
+.hero .details {animation:aboutHeroArrive .85s ease both .9s}
+/* Horizontal journey timeline */
+.journey-section {background:var(--cream);padding:105px 0 100px;overflow:hidden}
+.journey-inner {max-width:1450px;margin:auto;padding:0 6%}
+.journey-heading {font:normal clamp(39px,4.5vw,66px)/1.05 Georgia,'Times New Roman',serif;letter-spacing:-.045em;margin:14px 0 12px}
+.journey-sub {font-size:15px;line-height:1.7;color:#75685f;margin:0}
+.journey-hint {font-family:'Caveat',cursive;font-size:23px;color:#8d7967;margin:20px 0 12px;padding-right:12px;display:flex;align-items:baseline;justify-content:flex-end;gap:7px;transform:rotate(-2deg)}
+.journey-hint-arrow {display:inline-block;position:relative;top:8px;flex:none;line-height:1}
+.journey-hint-text {display:inline-block;line-height:1.2}
+@media(max-width:600px){.journey-hint{font-size:clamp(18px,5vw,23px);gap:5px;padding-right:4px}.journey-hint-arrow{top:7px}}
+.journey-scroll {overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:#bca99a transparent;padding:28px 0 22px}
+.journey-line {display:flex;align-items:stretch;position:relative;min-width:1320px;padding:0 8px}
+.journey-line::before {content:'';position:absolute;top:65px;left:60px;right:75px;border-top:1.5px dashed #b7a596}
+.journey-point {position:relative;flex:1;min-width:175px;display:flex;align-items:center;flex-direction:column;gap:12px;border:0;background:transparent;color:inherit;padding:10px 9px 16px;text-align:center;cursor:pointer;font:inherit;transition:transform .25s ease}
+.journey-point-gap {margin-left:25px}
+.journey-point:hover,.journey-point:focus-visible {transform:translateY(-5px)}
+.journey-date {font:700 11px Arial,sans-serif;letter-spacing:.15em;color:#897766;white-space:nowrap}
+.journey-dot {position:relative;z-index:1;width:17px;height:17px;border:4px solid var(--cream);box-sizing:content-box;background:#98806d;border-radius:50%;margin:2px 0 9px;box-shadow:0 0 0 1px #98806d;transition:background .2s,scale .2s}
+.journey-point:hover .journey-dot,.journey-point:focus-visible .journey-dot {background:#4f3e33;scale:1.18}
+.journey-point strong {font:normal 21px/1.2 Georgia,'Times New Roman',serif;white-space:nowrap}
+.journey-role {font-size:12px;color:#8c7c70}
+.postcard-overlay[hidden] {display:none!important}
+.postcard-overlay {position:fixed;inset:0;z-index:10000;background:rgba(34,28,24,.52);display:grid;place-items:center;padding:22px;backdrop-filter:blur(3px)}
+.postcard-open {overflow:hidden}
+.postcard {position:relative;width:min(760px,100%);min-height:330px;background:#f5f1ed;box-shadow:0 22px 75px rgba(0,0,0,.25);display:grid;grid-template-columns:45% 55%;padding:18px;transform:rotate(-1deg);animation:postcardIn .25s ease both}
+@keyframes postcardIn {from{opacity:0;transform:translateY(16px) rotate(-3deg) scale(.97)}to{opacity:1;transform:translateY(0) rotate(-1deg) scale(1)}}
+.postcard-close {position:absolute;right:12px;top:8px;z-index:2;background:transparent;border:0;color:#3e332b;font-size:31px;cursor:pointer;line-height:1;padding:4px 9px}
+.postcard-image {min-height:270px;background:#e6ddd3;display:flex;align-items:center;justify-content:center;border:7px solid #fffaf5}
+.postcard-image-label {font-family:'Caveat',cursive;font-size:23px;color:#9c8b7d;transform:rotate(-5deg)}
+.postcard-copy {position:relative;padding:48px 27px 20px 34px;display:flex;flex-direction:column;justify-content:center}
+.postcard-stamp {position:absolute;right:12px;top:20px;width:42px;height:49px;border:1px dashed #b4a292;display:grid;place-items:center;font-size:25px;color:#998574}
+.postcard-date {font:700 11px Arial,sans-serif;letter-spacing:.17em;color:#897766;margin:0 0 15px}
+.postcard-copy h3 {font:normal clamp(25px,3vw,38px)/1.1 Georgia,'Times New Roman',serif;letter-spacing:-.025em;margin:0 0 17px}
+.postcard-desc {font:14px/1.8 Arial,sans-serif;color:#62564e;margin:0}
+@media(max-width:650px){.journey-section{padding:72px 0}.journey-inner{padding:0 7%}.postcard{grid-template-columns:1fr;max-width:440px}.postcard-image{min-height:145px}.postcard-copy{padding:25px 18px 18px}.postcard-stamp{top:12px}.journey-point strong{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.hero .intro > *,.hero .portrait-area,.hero .details{animation:none!important}}
+</style>
+</head>
+
+<body>
+<div class="about-camera-cursor" aria-hidden="true">
+<svg viewBox="0 0 36 36" fill="none"><path d="M7 12h5l2.5-3h7l2.5 3h5a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V14a2 2 0 0 1 2-2Z" fill="#f5f1ed" stroke="#191715" stroke-width="1.5" stroke-linejoin="round"/><circle cx="18" cy="20" r="5" stroke="#191715" stroke-width="1.5"/><circle cx="27" cy="16" r="1" fill="#191715"/></svg>
+</div>
+
+
+<header class="nav">
+  <a class="logo" href="index.html">
+  <img src="assets/nz-logo.png" alt="NZ — Home">
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="index.html">HOME</a>
+    <a href="about.html" class="active" aria-current="page">ABOUT</a>
+    <a href="index.html#work">WORK</a>
+    <a href="research.html">RESEARCH</a>
+    <a href="life.html">LIFE</a>
+  </nav>
+  <a class="connect" href="mailto:Nicholezheng123@gmail.com">
+    Let's Connect ↗
+  </a>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="intro">
+    <div class="eyebrow">GET TO KNOW ME</div>
+
+    <h1>A LITTLE<br>ABOUT ME</h1>
+
+    <svg class="underline" viewBox="0 0 185 19" aria-hidden="true">
+      <path d="M5 12 Q58 4 110 11 T180 9"/>
+    </svg>
+
+    <p class="intro-quote">
+      “I'm a data-driven builder, curious researcher, and lifelong explorer
+      who enjoys turning complex problems into simple, meaningful solutions.”
+    </p>
+
+    <div class="interests-icons">
+      <div class="interest">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M4 27h24M7 24v-8h5v8M14 24V9h5v15M21 24V4h5v20"/>
+        </svg>
+        Data &amp;<br>Analytics
+      </div>
+      <div class="interest">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="13" cy="13" r="8"/>
+          <path d="m19 19 9 9M9 13h8M13 9v8"/>
+        </svg>
+        Research
+      </div>
+      <div class="interest">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="m3 25 10-17 6 10 4-6 7 13H3Z"/>
+        </svg>
+        Travel
+      </div>
+      <div class="interest">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M3 10h6l3-4h8l3 4h6v17H3V10Z"/>
+          <circle cx="16" cy="18" r="6"/>
+        </svg>
+        Photography
+      </div>
+    </div>
+  </div>
+
+  <div class="portrait-area">
+    <div class="polaroid" role="button" tabindex="0"
+         aria-label="Capture portrait photograph">
+      <span class="tape"></span>
+      <div class="photo-window">
+        <img src="assets/IMG_4700.jpeg"
+             alt="Nichole standing under an arched walkway">
+        <div class="viewfinder" aria-hidden="true">
+          <span class="corner tl"></span>
+          <span class="corner tr"></span>
+          <span class="corner bl"></span>
+          <span class="corner br"></span>
+        </div>
+        <div class="flash"></div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="details">
+
+    <div class="detail">
+      <div class="detail-label">Currently</div>
+      <p>
+        M.Eng. in Operations Research &amp;<br>
+        Information Engineering<br>
+        Cornell University
+      </p>
+    </div>
+
+    <div class="detail">
+      <div class="detail-label">Interests</div>
+      <p>Product Strategy · Analytics · Travel · Photography · Cooking</p>
+    </div>
+  </aside>
+</section>
+
+<div class="paper-edge" aria-hidden="true"></div>
+
+<section class="journey-section" aria-labelledby="journey-heading">
+  <div class="journey-inner">
+    <div class="eyebrow reveal">A COLLECTION OF CHAPTERS</div>
+    <h2 id="journey-heading" class="journey-heading reveal">My Journey</h2>
+    <p class="journey-sub reveal">A few places, projects, and people that shaped my path.</p>
+    <p class="journey-hint"><span class="journey-hint-arrow" aria-hidden="true">↙</span><span class="journey-hint-text">scroll &amp; click to open</span></p>
+    <div class="journey-scroll" tabindex="0" aria-label="Horizontally scrolling experience timeline">
+      <div class="journey-line">
+        <button class="journey-point" type="button" data-journey="0"><span class="journey-date">AUG 2023</span><span class="journey-dot"></span><strong>Cornell University</strong><span class="journey-role">A new beginning</span></button>
+        <button class="journey-point" type="button" data-journey="1"><span class="journey-date">SEP 2023</span><span class="journey-dot"></span><strong>Cornell EIA</strong><span class="journey-role">Joined Engineers in Action</span></button>
+        <button class="journey-point" type="button" data-journey="2"><span class="journey-date">SUMMER 2025</span><span class="journey-dot"></span><strong>VinUniversity</strong><span class="journey-role">Research internship</span></button>
+        <button class="journey-point" type="button" data-journey="3"><span class="journey-date">JAN 2025</span><span class="journey-dot"></span><strong>Optimization</strong><span class="journey-role">Scheduling research</span></button>
+        <button class="journey-point journey-point-gap" type="button" data-journey="4"><span class="journey-date">JAN 2025</span><span class="journey-dot"></span><strong>Scientific Teams</strong><span class="journey-role">Composition research</span></button>
+        <button class="journey-point" type="button" data-journey="5"><span class="journey-date">SUMMER 2026</span><span class="journey-dot"></span><strong>IBM</strong><span class="journey-role">Data &amp; AI internship</span></button>
+        <button class="journey-point" type="button" data-journey="6"><span class="journey-date">AUG 2026</span><span class="journey-dot"></span><strong>Cornell M.Eng.</strong><span class="journey-role">A new chapter</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="postcard-overlay" id="postcard-overlay" hidden>
+  <div class="postcard" role="dialog" aria-modal="true" aria-labelledby="postcard-title">
+    <button class="postcard-close" type="button" aria-label="Close postcard">×</button>
+    <div class="postcard-image"><span class="postcard-image-label">a memory to add later</span></div>
+    <div class="postcard-copy"><div class="postcard-stamp" aria-hidden="true">✳</div><p class="postcard-date" id="postcard-date"></p><h3 id="postcard-title"></h3><p class="postcard-desc" id="postcard-desc"></p></div>
+  </div>
+</div>
+
+<section class="facts-section">
+  <div class="section-inner">
+    <div class="eyebrow reveal">SMALL DETAILS, BIG PERSONALITY</div>
+    <h2 class="facts-heading reveal">A Few Things About Me</h2>
+
+    <div class="facts-grid">
+      <div class="fact reveal">
+        <div class="fact-number">01</div>
+        <div>
+          <h3>Always exploring</h3>
+          <p>I love discovering new places, trying different foods, and collecting little memories along the way.</p>
+        </div>
+      </div>
+
+      <div class="fact reveal">
+        <div class="fact-number">02</div>
+        <div>
+          <h3>A curious mind</h3>
+          <p>I enjoy learning new things and understanding how people, technology, and the world work.</p>
+        </div>
+      </div>
+
+      <div class="fact reveal">
+        <div class="fact-number">03</div>
+        <div>
+          <h3>A little competitive</h3>
+          <p>Whether it's badminton, a new challenge, or solving a tricky problem, I love a good challenge.</p>
+        </div>
+      </div>
+
+      <div class="fact reveal">
+        <div class="fact-number">04</div>
+        <div>
+          <h3>Creative at heart</h3>
+          <p>Photography, cooking, and finding creative ways to express ideas are some of my favorite things.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="moving-memories" aria-label="Moving photo gallery">
+  <div class="moving-inner">
+    <div class="eyebrow">LITTLE MOMENTS, ON REPEAT</div>
+    <p class="moving-subtitle">A moving collection of memories ♡</p>
+  </div>
+
+  <div class="moving-viewport" tabindex="0"
+       aria-label="Photo gallery, hover to pause">
+    <div class="moving-track">
+      <div class="moving-set">
+
+        <figure class="moving-photo">
+          <div class="moving-image">
+            <img src="assets/IMG_2892.jpeg" alt="Coastal travel memory">
+          </div>
+          <figcaption>little adventures</figcaption>
+        </figure>
+
+        <figure class="moving-photo">
+          <div class="moving-image">
+            <img src="assets/IMG_5886.jpeg" alt="Personal photo memory">
+          </div>
+          <figcaption>the little things</figcaption>
+        </figure>
+
+        <figure class="moving-photo">
+          <div class="moving-image">
+            <div class="moving-placeholder">your favorite café photo</div>
+          </div>
+          <figcaption>coffee dates</figcaption>
+        </figure>
+
+        <figure class="moving-photo">
+          <div class="moving-image">
+            <img src="assets/DSC07467.jpeg" alt="Cornell memorabilia">
+          </div>
+          <figcaption>captured moments</figcaption>
+        </figure>
+
+        <figure class="moving-photo">
+          <div class="moving-image">
+            <div class="moving-placeholder">your climbing photo</div>
+          </div>
+          <figcaption>new heights</figcaption>
+        </figure>
+
+        <figure class="moving-photo">
+          <div class="moving-image">
+            <img src="assets/IMG_4700.jpeg" alt="Portrait memory">
+          </div>
+          <figcaption>just me</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="footer">
+  <span>© Nichole Zheng · Made with curiosity ♡</span>
+  <a href="index.html">Back to home ↗</a>
+</footer>
+
+
+
+
+<script>
+(() => {
+  "use strict";
+
+  const reduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  // SCROLL REVEALS
+  const reveals = document.querySelectorAll(".reveal");
+
+  if (reduced || !("IntersectionObserver" in window)) {
+    reveals.forEach(el => el.classList.add("visible"));
+  } else {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .08 });
+
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  // LOOPING PHOTO GALLERY
+  const track = document.querySelector(".moving-track");
+  const firstSet = track?.querySelector(".moving-set");
+
+  if (firstSet) {
+    const clone = firstSet.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.appendChild(clone);
+  }
+
+
+  // Camera cursor on the interactive portrait, matching the homepage
+  const aboutCamera = document.querySelector(".about-camera-cursor");
+  if (aboutCamera && window.matchMedia("(hover:hover) and (pointer:fine)").matches) {
+    document.querySelectorAll(".polaroid").forEach(photo => {
+      photo.addEventListener("pointerenter", e => {
+        aboutCamera.style.transform = `translate3d(${e.clientX-17}px,${e.clientY-17}px,0)`;
+        aboutCamera.classList.add("visible");
+      });
+      photo.addEventListener("pointermove", e => {
+        aboutCamera.style.transform = `translate3d(${e.clientX-17}px,${e.clientY-17}px,0)`;
+      });
+      photo.addEventListener("pointerleave", () => {
+        aboutCamera.classList.remove("visible","pressed");
+      });
+      photo.addEventListener("pointerdown", () => aboutCamera.classList.add("pressed"));
+      photo.addEventListener("pointerup", () => aboutCamera.classList.remove("pressed"));
+      photo.addEventListener("pointercancel", () => aboutCamera.classList.remove("pressed"));
+    });
+  }
+
+  // PORTRAIT SHUTTER
+  document.querySelectorAll(".polaroid").forEach(photo => {
+    function capture() {
+      if (photo.classList.contains("capturing")) return;
+
+      photo.classList.add("capturing");
+
+      setTimeout(() => {
+        photo.classList.remove("capturing");
+      }, 450);
+    }
+
+    photo.addEventListener("click", capture);
+
+    photo.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        capture();
+      }
+    });
+  });
+
+  // Begin at the newest experience; visitors scroll left to revisit earlier chapters.
+  const journeyScroller = document.querySelector(".journey-scroll");
+  if (journeyScroller) {
+    const showLatestJourney = () => {
+      journeyScroller.scrollLeft = journeyScroller.scrollWidth - journeyScroller.clientWidth;
+    };
+    showLatestJourney();
+    window.addEventListener("load", showLatestJourney, { once: true });
+  }
+
+  // JOURNEY POSTCARDS
+  const journeyData = [
+    { date: "AUG 2023", title: "Cornell University", description: "I began my undergraduate journey at Cornell University, studying Operations Research and Engineering and discovering how much I enjoy using analytics to solve real-world problems." },
+    { date: "SEP 2023", title: "Cornell Engineers in Action", description: "I joined Cornell Engineers in Action, a student project team, and found a community where I could contribute to collaborative engineering projects and creative outreach." },
+    { date: "SUMMER 2025", title: "VinUniversity", description: "In Hanoi, Vietnam, I explored serverless and hybrid computing approaches for AI training, combining technical research with a new environment and perspective." },
+    { date: "JAN 2025", title: "Scheduling Optimization Research", description: "I worked on Cornell exam scheduling research, developing optimization models in Python and Gurobi to help improve scheduling for thousands of students." },
+    { date: "JAN 2025", title: "Scientific Team Composition Research", description: "I joined research on scientific collaboration, analyzing large datasets to understand how team composition, institutions, and AI adoption relate to research outcomes." },
+    { date: "SUMMER 2026", title: "IBM · Data & AI", description: "At IBM, I used analytics to support business strategy, creating revenue dashboards and geographic insights that I shared with product and sales teams." },
+    { date: "AUG 2026", title: "Cornell M.Eng.", description: "I started my Master of Engineering in Operations Research and Information Engineering, pursuing a concentration in Data Analytics and building on my interests in strategy, data, and technology." }
+  ];
+  const overlay = document.getElementById("postcard-overlay");
+  const closePostcard = overlay?.querySelector(".postcard-close");
+  let previousFocus = null;
+  function dismissPostcard() {
+    if (!overlay) return;
+    overlay.hidden = true;
+    document.body.classList.remove("postcard-open");
+    previousFocus?.focus();
+  }
+  document.querySelectorAll("[data-journey]").forEach(button => {
+    button.addEventListener("click", () => {
+      const item = journeyData[Number(button.dataset.journey)];
+      if (!item || !overlay) return;
+      previousFocus = button;
+      document.getElementById("postcard-date").textContent = item.date;
+      document.getElementById("postcard-title").textContent = item.title;
+      document.getElementById("postcard-desc").textContent = item.description;
+      overlay.hidden = false;
+      document.body.classList.add("postcard-open");
+      closePostcard?.focus();
+    });
+  });
+  closePostcard?.addEventListener("click", dismissPostcard);
+  overlay?.addEventListener("click", event => { if (event.target === overlay) dismissPostcard(); });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && overlay && !overlay.hidden) dismissPostcard();
+    if (event.key === "Tab" && overlay && !overlay.hidden) {
+      event.preventDefault();
+      closePostcard?.focus();
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>
